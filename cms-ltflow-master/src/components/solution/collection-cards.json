@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_solution_collection_cards",
+  "info": {
+    "displayName": "Collection Cards",
+    "icon": "th"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.collection-card"
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  },
+  "config": {}
+}

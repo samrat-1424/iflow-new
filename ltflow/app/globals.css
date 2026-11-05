@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-poppins: var(--font-poppins);
+}
+
+* {
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base resets to prevent FOUC / image size explosion */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: white;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* Hide Next.js dev overlay indicator */
+#__next-build-watcher,
+.nextjs-dev-overlay {
+  display: none !important;
+}
+
+/* Hide scrollbars but keep scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.prose a {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose p {
+  line-height: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.03); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.animate-float {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes float3D {
+  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1); filter: drop-shadow(0 15px 20px rgba(154, 63, 145, 0.15)); }
+  33% { transform: translateY(-12px) rotateX(1.5deg) rotateY(-1.5deg) scale(1.02); filter: drop-shadow(0 25px 35px rgba(162, 89, 230, 0.3)); }
+  66% { transform: translateY(-4px) rotateX(-1.5deg) rotateY(1.5deg) scale(1.01); filter: drop-shadow(0 15px 25px rgba(154, 63, 145, 0.2)); }
+  100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1); filter: drop-shadow(0 15px 20px rgba(154, 63, 145, 0.15)); }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}

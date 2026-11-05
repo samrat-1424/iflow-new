@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_studies",
+  "info": {
+    "singularName": "case-study",
+    "pluralName": "case-studies",
+    "displayName": "Case Studies"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "AI & CREDIT",
+        "CO-LENDING",
+        "LENDING OPERATIONS",
+        "COLLECTIONS",
+        "DSA & DISTRIBUTION",
+        "DIGITAL LENDING"
+      ],
+      "default": "AI & CREDIT"
+    },
+    "category_badge": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "string"
+    },
+    "coming_soon": {
+      "type": "boolean",
+      "default": false
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "solution.customer-success",
+        "solution.feature-section",
+        "solution.success-stats",
+        "solution.partnership-model",
+        "solution.partnership-models-section",
+        "solution.bicri-features",
+        "solution.collection-cards",
+        "solution.bnpl-workflow-section",
+        "solution.architecture-section",
+        "solution.workflow-section"
+      ]
+    }
+  }
+}

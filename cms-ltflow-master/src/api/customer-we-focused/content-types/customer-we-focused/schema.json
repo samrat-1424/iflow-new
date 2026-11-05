@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_we_focuseds",
+  "info": {
+    "singularName": "customer-we-focused",
+    "pluralName": "customer-we-focuseds",
+    "displayName": "Curated Solutions For"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "focus_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "customer.focus-item"
+    },
+    "faq_section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.faq-section"
+    }
+  }
+}

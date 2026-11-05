@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sitemap – iFLOW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:        #3D0099;
+      --purple-mid:    #6B21E8;
+      --purple-light:  #9B5CF6;
+      --magenta:       #D400A8;
+      --pink:          #FF3FBF;
+      --blue:          #0066FF;
+      --dark:          #05020E;
+      --surface:       #0A0618;
+      --card:          #0F0820;
+      --card-hover:    #150B2A;
+      --border:        rgba(107,33,232,0.22);
+      --border-hover:  rgba(180,0,200,0.5);
+      --text:          #E8E0F5;
+      --muted:         #7060A0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-wrap img {
+      height: 40px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .header-divider { width:1px; height:36px; background:var(--border); margin:0 12px; }
+    .header-meta    { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      padding: 52px 48px 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 500px; height: 340px;
+      background: radial-gradient(ellipse, rgba(212,0,168,0.12) 0%, rgba(61,0,153,0.1) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--magenta), var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-pill {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #CC66FF;
+      border: 1px solid rgba(180,0,200,0.3);
+      background: rgba(180,0,200,0.06);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .divider-line {
+      height: 1px;
+      background: linear-gradient(90deg, var(--magenta) 0%, var(--purple-mid) 40%, var(--blue) 80%, transparent 100%);
+      margin: 32px 48px 40px;
+      opacity: 0.4;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 0 48px 64px;
+      flex-grow: 1;
+    }
+
+    .card-blog { grid-column: 1 / -1; }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(212,0,168,0.15);
+    }
+
+    .card-head {
+      padding: 18px 22px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(61,0,153,0.12) 0%, rgba(212,0,168,0.05) 100%);
+    }
+
+    .card-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--magenta) 0%, var(--purple-mid) 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(212,0,168,0.4);
+    }
+
+    .card-icon svg {
+      width: 16px; height: 16px;
+      stroke: #fff; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: #fff;
+    }
+
+    .card-body { padding: 14px 22px 18px; }
+
+    .blog-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0 28px;
+    }
+
+    .link-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .link-item:last-child { border-bottom: none; }
+
+    .link-arrow {
+      background: linear-gradient(135deg, var(--magenta), var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 14px; margin-top: 1px; flex-shrink: 0; line-height: 1.5; font-weight: 600;
+    }
+
+    .link-item a {
+      font-size: 13px; font-weight: 400;
+      color: #B8A8D8;
+      text-decoration: none;
+      line-height: 1.55;
+      transition: color 0.2s;
+    }
+
+    .link-item a:hover { color: #DD88FF; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+      margin-top: auto;
+    }
+
+    footer p { font-size:11px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; }
+    footer a  { color: #CC66FF; text-decoration: none; }
+
+    @media (max-width: 640px) {
+      header, .hero, .divider-line, .grid, footer { padding-left:18px; padding-right:18px; }
+      .grid        { grid-template-columns: 1fr; }
+      .blog-inner  { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <img src="/hero/logo.png" alt="iFLOW Logo"/>
+  </div>
+  <div class="header-divider"></div>
+  <div class="header-meta">Dynamic Site Index</div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="hero-pill">Sitemap</span>
+    <h1>Complete <span>Site Map</span></h1>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<main class="grid">
+  <!-- Card 1: Core Pages -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </div>
+      <div class="card-title">Core Navigation</div>
+    </div>
+    <div class="card-body">
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/">Home</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/about">About Us</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions">Our Solutions</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/case-studies">Case Studies</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/blogs">Blogs & News</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/book-a-demo">Book a Demo</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/privacy-policy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Solutions -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+      </div>
+      <div class="card-title">Lending Solutions</div>
+    </div>
+    <div class="card-body">
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/loan-origination-los">Loan Origination System (LOS)</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/loan-management-lms">Loan Management System (LMS)</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/co-lending">Co-Lending Platform</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/distribution">DSA & Lead Distribution</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/bicri">BICRI Credit Rating</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/bnpl-product-suite">BNPL Product Suite</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/msme-and-agri-tech-on-boarding-journeys">MSME & Agri Onboarding</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/collection">Collection Automation</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/on-boarding-journey">Digital KYC Onboarding</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/solutions/ai-intelligent-suite">AI Intelligent Suite</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Resources & Verticals -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="card-title">Industry Verticals</div>
+    </div>
+    <div class="card-body">
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/resources/Retail">Retail Resources</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/resources/wholesale">Wholesale Resources</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/resources/agriculture">Agriculture Resources</a>
+      </div>
+      <div class="link-item">
+        <span class="link-arrow">→</span>
+        <a href="/resources/msme">MSME Resources</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: Blogs & Articles -->
+  <div class="card card-blog">
+    <div class="card-head">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </div>
+      <div class="card-title">Latest Articles & Blogs</div>
+    </div>
+    <div class="card-body">
+      <div class="blog-inner">
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/how-api-orchestrated-lending-works">API Orchestrated Lending Real-Time Processing</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-co-lending-and-how-does-it-work">What is Co-Lending and How Does it Work?</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/how-to-choose-the-right-loan-management-system">How to Choose the Right LMS?</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/difference-between-los-and-lms-in-the-lending-lifecycle">Difference Between LOS and LMS</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/the-future-of-indian-agribusiness-and-msme-finance-powered-by-digital-lending-infrastructure">Future of Indian Agribusiness & MSME Finance</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/bnpl-product-suite-what-it-is-and-why-lenders-should-care">BNPL Product Suite Explained</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/10-types-of-loan-management-systems-powering-digital-lending-today">10 Types of Loan Management Systems</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/distribution-automating-dsa-operations-lead-flow-and-payouts">DSA Distribution & Payout Automation</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/collections-from-missed-dues-to-measurable-efficiency">Collections & Missed Dues Efficiency</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-an-ai-based-business-rule-engine-bre-a-practical-guide-for-modern-lending">AI Business Rule Engine (BRE) Guide</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-dsa-in-banking-a-complete-guide">What is DSA in Banking?</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-the-difference-between-traditional-and-ai-credit-scoring">Traditional vs AI Credit Scoring</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/bicri-business-indicator-for-credit-rating-in-india">BICRI: Credit Rating in India</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-a-loan-origination-system-los">What is a Loan Origination System (LOS)?</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/digital-onboarding-automating-the-kyc-journey">Digital Onboarding & KYC Automation</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/what-is-a-loan-management-system-lms">What is a Loan Management System (LMS)?</a>
+        </div>
+        <div class="link-item">
+          <span class="link-arrow">→</span>
+          <a href="/blogs/co-lending-powering-financial-inclusion-through-collaboration-and-technology">Co-Lending & Financial Inclusion</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 iFLOW. All rights reserved.</p>
+  <p>Served Statically | Back to <a href="/">iFLOW Home</a></p>
+</footer>
+
+</body>
+</html>

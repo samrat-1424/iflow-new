@@ -1,0 +1,123 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Choosing the Right LMS",
+      "slug": "how-to-choose-the-right-loan-management-system",
+      "description": "Learn how to select the most suitable Loan Management System.",
+      "link": "https://iflow.co.in/blogs/how-to-choose-the-right-loan-management-system"
+    },
+    {
+      "id": 2,
+      "title": "LOS vs LMS in Lending",
+      "slug": "difference-between-los-and-lms-in-the-lending-lifecycle",
+      "description": "Understand the differences between Loan Origination and Management Systems.",
+      "link": "https://iflow.co.in/blogs/difference-between-los-and-lms-in-the-lending-lifecycle"
+    },
+    {
+      "id": 3,
+      "title": "Future of Agri/MSME Finance",
+      "slug": "the-future-of-indian-agribusiness-and-msme-finance-powered-by-digital-lending-infrastructure",
+      "description": "Discover how digital lending shapes Indian agribusiness and MSME finance.",
+      "link": "https://iflow.co.in/blogs/the-future-of-indian-agribusiness-and-msme-finance-powered-by-digital-lending-infrastructure"
+    },
+    {
+      "id": 4,
+      "title": "BNPL Product Suite Explained",
+      "slug": "bnpl-product-suite-what-it-is-and-why-lenders-should-care",
+      "description": "Learn what a BNPL product suite is and its importance for lenders.",
+      "link": "https://iflow.co.in/blogs/bnpl-product-suite-what-it-is-and-why-lenders-should-care"
+    },
+    {
+      "id": 5,
+      "title": "10 Types of LMS",
+      "slug": "10-types-of-loan-management-systems-powering-digital-lending-today",
+      "description": "Explore ten types of Loan Management Systems driving digital lending.",
+      "link": "https://iflow.co.in/blogs/10-types-of-loan-management-systems-powering-digital-lending-today"
+    },
+    {
+      "id": 6,
+      "title": "Automating DSA Operations",
+      "slug": "distribution-automating-dsa-operations-lead-flow-and-payouts",
+      "description": "Learn to automate DSA operations, lead flow, and payouts.",
+      "link": "https://iflow.co.in/blogs/distribution-automating-dsa-operations-lead-flow-and-payouts"
+    },
+    {
+      "id": 7,
+      "title": "Improving Collections Efficiency",
+      "slug": "collections-from-missed-dues-to-measurable-efficiency",
+      "description": "Discover strategies to improve loan collection efficiency.",
+      "link": "https://iflow.co.in/blogs/collections-from-missed-dues-to-measurable-efficiency"
+    },
+    {
+      "id": 8,
+      "title": "AI-Based Business Rule Engine",
+      "slug": "what-is-an-ai-based-business-rule-engine-bre-a-practical-guide-for-modern-lending",
+      "description": "A practical guide to AI-based Business Rule Engines in lending.",
+      "link": "https://iflow.co.in/blogs/what-is-an-ai-based-business-rule-engine-bre-a-practical-guide-for-modern-lending"
+    },
+    {
+      "id": 9,
+      "title": "DSA in Banking Guide",
+      "slug": "what-is-dsa-in-banking-a-complete-guide",
+      "description": "A comprehensive guide explaining what a Direct Selling Agent (DSA) is in banking.",
+      "link": "https://iflow.co.in/blogs/what-is-dsa-in-banking-a-complete-guide"
+    },
+    {
+      "id": 10,
+      "title": "Traditional vs AI Credit Scoring",
+      "slug": "what-is-the-difference-between-traditional-and-ai-credit-scoring",
+      "description": "Understand the differences between traditional and AI-driven credit scoring.",
+      "link": "https://iflow.co.in/blogs/what-is-the-difference-between-traditional-and-ai-credit-scoring"
+    },
+    {
+      "id": 11,
+      "title": "BiCri for Credit Rating",
+      "slug": "bicri-business-indicator-for-credit-rating-in-india",
+      "description": "Learn about BiCri as a business indicator for credit rating in India.",
+      "link": "https://iflow.co.in/blogs/bicri-business-indicator-for-credit-rating-in-india"
+    },
+    {
+      "id": 12,
+      "title": "What is a Loan Origination System (LOS)?",
+      "slug": "what-is-a-loan-origination-system-los",
+      "description": "An explanation of what a Loan Origination System (LOS) is.",
+      "link": "https://iflow.co.in/blogs/what-is-a-loan-origination-system-los"
+    },
+    {
+      "id": 13,
+      "title": "Automating Digital Onboarding & KYC",
+      "slug": "digital-onboarding-automating-the-kyc-journey",
+      "description": "Learn how to automate the digital onboarding and KYC process.",
+      "link": "https://iflow.co.in/blogs/digital-onboarding-automating-the-kyc-journey"
+    },
+    {
+      "id": 14,
+      "title": "What is a Loan Management System (LMS)?",
+      "slug": "what-is-a-loan-management-system-lms",
+      "description": "An explanation of what a Loan Management System (LMS) is.",
+      "link": "https://iflow.co.in/blogs/what-is-a-loan-management-system-lms"
+    },
+    {
+      "id": 15,
+      "title": "Co-Lending for Financial Inclusion",
+      "slug": "co-lending-powering-financial-inclusion-through-collaboration-and-technology",
+      "description": "Discover how co-lending drives financial inclusion via collaboration and tech.",
+      "link": "https://iflow.co.in/blogs/co-lending-powering-financial-inclusion-through-collaboration-and-technology"
+    },
+    {
+      "id": 16,
+      "title": "What Is Co-Lending? How Co-Lending Platforms Work",
+      "slug": "what-is-co-lending-and-how-does-it-work",
+      "description": "Discover What Is Co-Lending? How Co-Lending Platforms Work in detail.",
+      "link": "https://iflow.co.in/blogs/what-is-co-lending-and-how-does-it-work"
+    },
+    {
+      "id": 17,
+      "title": "How API Orchestrated Lending Makes Real-Time Loan Processing Faster",
+      "slug": "how-api-orchestrated-lending-works",
+      "description": "Learn how API orchestrated lending makes real-time loan processing faster.",
+      "link": "https://iflow.co.in/blogs/how-api-orchestrated-lending-works"
+    }
+  ]
+}

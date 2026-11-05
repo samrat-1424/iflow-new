@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_solution_workflow_feature",
+  "info": {
+    "displayName": "Workflow Feature",
+    "icon": "circle-check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

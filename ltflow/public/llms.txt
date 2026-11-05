@@ -1,0 +1,62 @@
+# iFLOW – llms.txt
+
+> Seamless digital lending infrastructure for Banks, NBFCs, and E-commerce.
+
+iFLOW provides a comprehensive digital lending infrastructure designed for Banks, Non-Banking Financial Companies (NBFCs), and E-commerce platforms. The platform aims to streamline lending operations, reduce operational costs, and enhance credit decision-making processes through advanced technology.
+
+Key use cases include loan origination (LOS), loan management (LMS), co-lending, AI/ML-based credit scoring, and BNPL (Buy Now, Pay Later) solutions. iFLOW caters to financial institutions looking to modernize their lending processes, improve efficiency, and expand their reach. The service emphasizes digital transformation within the lending sector, offering solutions for various financial products and customer segments, including MSME and Agri-tech.
+
+An LLM should understand that iFLOW is a B2B SaaS provider focused on the fintech lending space. It offers modular solutions that can be integrated into existing financial ecosystems. The website content details specific product functionalities, industry insights through blog posts, and case studies demonstrating successful implementations. The primary goal is to enable digital lending at scale. 
+
+## Core Product Information
+
+- [iFLOW | Seamless Digital Lending Infrastructure](https://iflow.co.in/): Overview of iFLOW's digital lending infrastructure for Banks and NBFCs.
+- [Loan Origination System (LOS)](https://iflow.co.in/solutions/loan-origination-los): Learn about iFLOW's Loan Origination System for streamlining loan applications.
+- [Loan Management System (LMS)](https://iflow.co.in/solutions/loan-management-lms): Discover iFLOW's Loan Management System for efficient loan lifecycle    management.
+- [Co-Lending Solutions](https://iflow.co.in/solutions/co-lending): Explore iFLOW's co-lending platform for collaborative lending initiatives.
+- [AI Intelligent Suite](https://iflow.co.in/solutions/ai-intelligent-suite): Understand iFLOW's AI Intelligent Suite for advanced credit scoring.
+- [BiCri (Business Indicator for Credit Rating)](https://iflow.co.in/solutions/bicri): Learn about BiCri for business indicator-based credit rating in India.
+- [BNPL Product Suite](https://iflow.co.in/solutions/bnpl-product-suite): Details on iFLOW's Buy Now, Pay Later product suite for lenders.
+- [MSME & Agri-tech Onboarding](https://iflow.co.in/solutions/msme-and-agri-tech-on-boarding-journeys): Discover onboarding journeys for MSME and Agri-tech sectors.
+- [Distribution Solutions](https://iflow.co.in/solutions/distribution): Automate DSA operations and lead flow with iFLOW's distribution solutions.
+- [Collection Solutions](https://iflow.co.in/solutions/collection): Enhance collection efficiency with iFLOW's automated solutions.
+- [On-boarding Journey](https://iflow.co.in/solutions/on-boarding-journey): Streamline customer onboarding with iFLOW's digital solutions.  
+
+## Resources & Case Studies
+
+- [Case Studies](https://iflow.co.in/case-studies): Read success stories and case studies of iFLOW implementations.
+- [Retail Resources](https://iflow.co.in/resources/Retail): Resources related to iFLOW's solutions for the retail sector.
+- [Wholesale Resources](https://iflow.co.in/resources/wholesale): Resources related to iFLOW's solutions for the wholesale sector.
+- [Agriculture Resources](https://iflow.co.in/resources/agriculture): Resources for iFLOW's solutions in the agriculture finance sector.
+- [MSME Resources](https://iflow.co.in/resources/msme): Resources for iFLOW's solutions tailored for MSMEs.
+
+## Blog Articles
+
+- [Blog](https://iflow.co.in/blogs): Explore iFLOW's blog for insights on digital lending and fintech.
+- [Choosing the Right LMS](https://iflow.co.in/blogs/how-to-choose-the-right-loan-management-system): Learn how to select the most suitable Loan Management System.
+- [LOS vs LMS in Lending](https://iflow.co.in/blogs/difference-between-los-and-lms-in-the-lending-lifecycle): Understand the differences between Loan Origination and Management Systems.
+- [Future of Agri/MSME Finance](https://iflow.co.in/blogs/the-future-of-indian-agribusiness-and-msme-finance-powered-by-digital-lending-infrastructure): Discover how digital lending shapes Indian agribusiness and MSME finance.
+- [BNPL Product Suite Explained](https://iflow.co.in/blogs/bnpl-product-suite-what-it-is-and-why-lenders-should-care): Learn what a BNPL product suite is and its importance for lenders.
+- [10 Types of LMS](https://iflow.co.in/blogs/10-types-of-loan-management-systems-powering-digital-lending-today): Explore ten types of Loan Management Systems driving digital lending.
+- [Automating DSA Operations](https://iflow.co.in/blogs/distribution-automating-dsa-operations-lead-flow-and-payouts): Learn to automate DSA operations, lead flow, and payouts.
+- [Improving Collections Efficiency](https://iflow.co.in/blogs/collections-from-missed-dues-to-measurable-efficiency): Discover strategies to improve loan collection efficiency.
+- [AI-Based Business Rule Engine](https://iflow.co.in/blogs/what-is-an-ai-based-business-rule-engine-bre-a-practical-guide-for-modern-lending): A practical guide to AI-based Business Rule Engines in lending.
+- [DSA in Banking Guide](https://iflow.co.in/blogs/what-is-dsa-in-banking-a-complete-guide): A comprehensive guide explaining what a Direct Selling Agent (DSA) is in banking.
+- [Traditional vs AI Credit Scoring](https://iflow.co.in/blogs/what-is-the-difference-between-traditional-and-ai-credit-scoring): Understand the differences between traditional and AI-driven credit scoring.
+- [BiCri for Credit Rating](https://iflow.co.in/blogs/bicri-business-indicator-for-credit-rating-in-india): Learn about BiCri as a business indicator for credit rating in India.
+- [What is a Loan Origination System (LOS)?](https://iflow.co.in/blogs/what-is-a-loan-origination-system-los): An explanation of what a Loan Origination System (LOS) is.
+- [Automating Digital Onboarding & KYC](https://iflow.co.in/blogs/digital-onboarding-automating-the-kyc-journey): Learn how to automate the digital onboarding and KYC process.
+- [What is a Loan Management System (LMS)?](https://iflow.co.in/blogs/what-is-a-loan-management-system-lms): An explanation of what a Loan Management System (LMS) is.
+- [Co-Lending for Financial Inclusion](https://iflow.co.in/blogs/co-lending-powering-financial-inclusion-through-collaboration-and-technology): Discover how co-lending drives financial inclusion via collaboration and tech.
+- [What Is Co-Lending? How Co-Lending Platforms Work](https://iflow.co.in/blogs/what-is-co-lending-and-how-does-it-work): Discover What Is Co-Lending? How Co-Lending Platforms Work in detail.
+- [How API Orchestrated Lending Makes Real-Time Loan Processing Faster](https://iflow.co.in/blogs/how-api-orchestrated-lending-works): Learn how API orchestrated lending makes real-time loan processing faster.
+
+
+## Company & Engagement
+
+- [Book a Demo](https://iflow.co.in/book-a-demo): Request a demonstration of iFLOW's digital lending solutions.
+- [About Us](https://iflow.co.in/about): Learn about iFLOW's mission, vision, and company background.
+
+## Legal
+
+- [Privacy Policy](https://iflow.co.in/privacy-policy): Review iFLOW's policy on data privacy and protection.

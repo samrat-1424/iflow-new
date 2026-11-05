@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_solution_stats",
+  "info": {
+    "displayName": "Stat",
+    "icon": "chart-line"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

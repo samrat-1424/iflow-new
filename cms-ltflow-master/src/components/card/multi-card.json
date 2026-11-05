@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_card_multi_cards",
+  "info": {
+    "displayName": "Multi Card",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "section_title": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "component": "card.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

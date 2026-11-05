@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_faq_sections",
+  "info": {
+    "displayName": "Faq Section",
+    "icon": "comments"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "You Ask. We Answer!"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-item"
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  }
+}

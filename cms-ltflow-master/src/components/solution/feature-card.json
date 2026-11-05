@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_solution_feature_cards",
+  "info": {
+    "displayName": "Feature Card",
+    "icon": "credit-card"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

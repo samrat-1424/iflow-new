@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "web_pages",
+  "info": {
+    "singularName": "web-page",
+    "pluralName": "web-pages",
+    "displayName": "Web Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "sections": {
+      "type": "component",
+      "component": "card.multi-card",
+      "repeatable": true
+    },
+    "meta_fields": {
+      "type": "component",
+      "component": "meta.meta-tag",
+      "repeatable": false
+    }
+  }
+}

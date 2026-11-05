@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_solution_architecture_items",
+  "info": {
+    "displayName": "Architecture Item",
+    "icon": "circle"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "highlight": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

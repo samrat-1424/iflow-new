@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_solution_bicri_features",
+  "info": {
+    "displayName": "Bicri Features",
+    "icon": "grip"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }, 
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.bicri-card"
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_solution_architecture_sections",
+  "info": {
+    "displayName": "Architecture Section",
+    "icon": "network-wired"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.architecture-item"
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_solution_partnership_models",
+  "info": {
+    "displayName": "Partnership Model",
+    "icon": "layer-group"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "features": {
+      "type": "richtext"
+    },
+    "diagram": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  },
+  "config": {}
+}

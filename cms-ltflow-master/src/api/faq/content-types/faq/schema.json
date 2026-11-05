@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "FAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-section"
+    },
+    "meta_fields": {
+      "type": "component",
+      "component": "meta.meta-tag",
+      "repeatable": false
+    }
+  }
+}

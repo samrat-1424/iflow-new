@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_solution_bnpl_workflow_sections",
+  "info": {
+    "displayName": "BNPL Workflow Section",
+    "icon": "diagram-project"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "left_features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.workflow-feature"
+    },
+    "right_features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.workflow-feature"
+    },
+    "display_location": {
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "only_detail",
+        "only_main"
+      ],
+      "default": "both"
+    }
+  },
+  "config": {}
+}

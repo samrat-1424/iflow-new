@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_solution_workflow_steps",
+  "info": {
+    "displayName": "Workflow Step",
+    "icon": "chevron-right"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

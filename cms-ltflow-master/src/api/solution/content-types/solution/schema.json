@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solutions",
+  "info": {
+    "singularName": "solution",
+    "pluralName": "solutions",
+    "displayName": "solution"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "solution.customer-success",
+        "solution.feature-section",
+        "solution.success-stats",
+        "solution.partnership-model",
+        "solution.partnership-models-section",
+        "solution.bicri-features",
+        "solution.collection-cards",
+        "solution.bnpl-workflow-section",
+        "solution.architecture-section",
+        "solution.workflow-section"
+      ]
+    },
+    "meta_fields": {
+      "type": "component",
+      "component": "meta.meta-tag",
+      "repeatable": false
+    },
+    "feature_cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "solution.feature-card"
+    },
+    "feature_cards_heading": {
+      "type": "string"
+    },
+    "feature_cards_description": {
+      "type": "text"
+    },
+    "faq_section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.faq-section"
+    }
+  }
+}
