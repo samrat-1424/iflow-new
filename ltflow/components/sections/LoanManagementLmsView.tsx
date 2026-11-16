@@ -612,42 +612,6 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
       : lmsModules.filter((m) => m.category === activeModuleCategory);
 
   // ────────────────────────────────────────────────────────────────────────────
-  // 5. Strategic Business Benefits Data (Co-Lending card layout from user reference)
-  // ────────────────────────────────────────────────────────────────────────────
-  const strategicPillars = [
-    {
-      badge: "ACCOUNTING & RECONCILIATION",
-      title: "Zero Ledger Drift & Real-Time Balancing",
-      description:
-        "Every repayment, disbursement, and interest accrual posts directly to a double-entry core ledger, ensuring 100% daily trial balance accuracy and eliminating end-of-day suspense accounts.",
-      image: toUrl("/uploads/Professional_Loan_Application_Workspace_7cabc0ce18.webp"),
-      icon: Landmark,
-      metricLabel: "Reconciliation",
-      metric: "Zero Ledger Drift",
-    },
-    {
-      badge: "REPAYMENTS & VELOCITY",
-      title: "Automated Multi-Rail Repayments & NACH",
-      description:
-        "Multi-rail auto-debit presentment across e-NACH, BBPS, and UPI AutoPay with smart retry heuristics minimizes default risk, accelerates clearing cycles, and reduces bounce fees.",
-      image: toUrl("/uploads/Faster_Disbursement_5d620dea14.png"),
-      icon: Zap,
-      metricLabel: "Clearing Success",
-      metric: "> 90% Success",
-    },
-    {
-      badge: "REGULATORY & GOVERNANCE",
-      title: "Continuous RBI IRAC & Portfolio Surveillance",
-      description:
-        "Automated Day-Past-Due (DPD) surveillance buckets accounts into SMA-0, SMA-1, SMA-2, and NPA on day 90 with automated 4-bureau submission files and regulatory audit trails.",
-      image: toUrl("/uploads/Credit_Analyst_Reviewing_Loan_Decision_e77b37131a.webp"),
-      icon: ShieldCheck,
-      metricLabel: "Compliance",
-      metric: "100% IRAC Compliant",
-    },
-  ];
-
-  // ────────────────────────────────────────────────────────────────────────────
   // 6. Interactive 8-Step Servicing Stepper Lifecycle
   // ────────────────────────────────────────────────────────────────────────────
   const pipelineSteps = [
@@ -1230,11 +1194,6 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
                       {cardDesc}
                     </p>
                   </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                    <span>Configure Lifecycle Rules</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
               );
             })}
@@ -1380,7 +1339,7 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-[#623f99] border border-purple-200/70 tracking-widest uppercase">
+                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] border border-purple-200/60 tracking-widest uppercase">
                         PHASE {pillar.idx}
                       </span>
                       <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -1518,7 +1477,7 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
                       <div className="w-12 h-12 rounded-2xl bg-purple-50 text-[#623f99] flex items-center justify-center border border-purple-100 shadow-2xs group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300">
                         <ModIcon className="w-5 h-5" />
                       </div>
-                      <span className="font-mono text-[10px] font-bold text-slate-400 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full uppercase tracking-wider group-hover:text-[#9a3f91] group-hover:border-purple-200 transition-colors">
+                      <span className="font-mono text-[10px] font-bold text-slate-400 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full uppercase tracking-wider group-hover:text-[#623f99] group-hover:border-purple-300 transition-colors">
                         {mod.category}
                       </span>
                     </div>
@@ -1529,97 +1488,6 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {mod.description}
                     </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                    <span>Institutional Capability</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION 6: STRATEGIC BUSINESS VALUE — Co-Lending Style 3-Pillar Cards
-      ────────────────────────────────────────────────────────────────────────── */}
-      <section
-        id="business-benefits"
-        className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-16 bg-[#faf8fd] border-b border-purple-100/70 overflow-hidden"
-      >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 top-1/3 w-80 h-80 rounded-full bg-purple-200/30 blur-[100px]"
-        />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#9a3f91]" />
-              WHY LMS MATTERS
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-              The Strategic Case for Modern Cloud LMS at Scale
-            </h2>
-            <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
-              How leading financial institutions leverage real-time double-entry accounting, automated clearing, and unified governance to eliminate ledger drift.
-            </p>
-          </div>
-
-          {/* 3 Strategic Pillar Cards (Co-Lending Reference Layout) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {strategicPillars.map((pillar, i) => {
-              const IconComp = pillar.icon;
-              return (
-                <div
-                  key={i}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300"
-                >
-                  {/* Top Image Container with Floating Pill Badge */}
-                  <div className="relative w-full aspect-[16/10] bg-slate-50 border-b border-slate-100 p-4 flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
-                      unoptimized
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10.5px] font-mono font-bold tracking-wider text-[#623f99] border border-purple-100 shadow-2xs">
-                        <IconComp className="w-3.5 h-3.5 text-[#9a3f91]" />
-                        {pillar.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-7 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
-                        {pillar.description}
-                      </p>
-                    </div>
-
-                    {/* Metric Highlight Box */}
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                          {pillar.metricLabel}
-                        </span>
-                        <span className="text-sm sm:text-base font-bold text-slate-900 tracking-tight">
-                          {pillar.metric}
-                        </span>
-                      </div>
-                      <div className="w-9 h-9 rounded-full bg-purple-50 text-[#7c3aed] flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-colors shadow-2xs">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
                   </div>
                 </div>
               );
@@ -1684,7 +1552,7 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
               {/* Left Detail */}
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold text-[#623f99] bg-purple-100/80 px-3 py-1 rounded-full uppercase tracking-wider border border-purple-200">
+                  <span className="font-mono text-xs font-bold text-[#9a3f91] bg-purple-100/80 px-3 py-1 rounded-full uppercase tracking-wider border border-purple-200/60">
                     PHASE 0{activeStep.id} · {activeStep.tag}
                   </span>
                   <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
@@ -1830,11 +1698,6 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
                         {cardDesc}
                       </p>
                     </div>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                      <span>Institutional Parameter</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
                   </div>
                 );
               })}
@@ -1933,8 +1796,15 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
         id="contact"
         className="relative py-24 px-6 sm:px-8 lg:px-16 bg-gradient-to-br from-[#3B1259] via-[#501c78] to-[#2d0b47] text-white overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-3xl pointer-events-none" />
+        {/* Ambient Glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#7c3aed]/20 blur-[130px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 top-10 w-96 h-96 rounded-full bg-[#e51ede]/15 blur-[140px]"
+        />
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 text-purple-200 text-xs font-mono font-bold tracking-widest uppercase border border-white/15 backdrop-blur-md mb-6">
@@ -1956,7 +1826,7 @@ export default function LoanManagementLmsView({ solution }: LoanManagementLmsVie
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/book-a-demo"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

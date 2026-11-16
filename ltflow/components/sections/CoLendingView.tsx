@@ -596,18 +596,13 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                     </div>
 
                     {/* Metric Highlight Box */}
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
-                          {pillar.metricLabel}
-                        </span>
-                        <span className="text-sm sm:text-base font-bold text-[#0a1f44] tracking-tight">
-                          {pillar.metric}
-                        </span>
-                      </div>
-                      <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#7c3aed] flex items-center justify-center group-hover:bg-[#623f99] group-hover:text-white transition-colors">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
+                    <div className="mt-6 pt-4 border-t border-slate-100">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
+                        {pillar.metricLabel}
+                      </span>
+                      <span className="text-sm sm:text-base font-bold text-[#0a1f44] tracking-tight">
+                        {pillar.metric}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -662,7 +657,7 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                     key={card.id || idx}
                     onMouseEnter={() => setHoveredCardIdx(idx)}
                     onMouseLeave={() => setHoveredCardIdx(null)}
-                    className={`group relative rounded-3xl p-7 sm:p-8 bg-white border transition-all duration-300 flex flex-col justify-between ${
+                    className={`group relative rounded-3xl p-7 sm:p-8 bg-white border transition-all duration-300 flex flex-col justify-start ${
                       isHovered
                         ? "border-purple-300 shadow-xl shadow-purple-950/10 -translate-y-1"
                         : "border-slate-200/80 shadow-xs hover:border-purple-200 hover:shadow-md"
@@ -677,13 +672,10 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
 
                     <div>
                       {/* Icon and Tag Row */}
-                      <div className="flex items-center justify-between mb-6">
+                      <div className="mb-6">
                         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/60 text-[#623f99] flex items-center justify-center border border-purple-200/60 shadow-xs group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300">
                           <Icon className="w-6 h-6 transition-colors" />
                         </div>
-                        <span className="font-mono text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full group-hover:text-[#9a3f91] group-hover:border-purple-200 transition-colors">
-                          FEATURE #{idx + 1}
-                        </span>
                       </div>
 
                       <h3 className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
@@ -692,13 +684,6 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                       <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
                         {cardDesc}
                       </p>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                      <span className="group-hover:translate-x-0.5 transition-transform">
-                        {card.button_text || "Enterprise Module"}
-                      </span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 );
@@ -807,7 +792,7 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                   {/* Right: Step Details from Strapi */}
                   <div className="flex-1 space-y-3.5">
                     <div className="flex flex-wrap items-center justify-between gap-3">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-[#623f99] text-xs font-mono font-bold uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-mono font-bold uppercase tracking-wider border border-purple-200/60">
                         STEP {activeStepIdx + 1} OF {dynamicSteps.length}
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
@@ -846,7 +831,7 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                         className={`inline-flex items-center gap-1 font-semibold px-4 py-2 rounded-xl transition-all ${
                           activeStepIdx === dynamicSteps.length - 1
                             ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
-                            : "bg-[#623f99] text-white hover:bg-[#4d3179] shadow-sm cursor-pointer"
+                            : "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white hover:opacity-95 shadow-md shadow-purple-900/20 cursor-pointer"
                         }`}
                       >
                         <span>Next Step &rarr;</span>
@@ -891,7 +876,7 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
                   <div>
                     {/* Top Tag & Metric */}
                     <div className="flex items-center justify-between mb-5">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-[11px] font-mono font-bold tracking-wider text-[#623f99] border border-purple-100">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-[11px] font-mono font-bold tracking-wider text-[#9a3f91] border border-purple-200/60">
                         <IconComp className="w-3.5 h-3.5 text-[#9a3f91]" />
                         {card.badge}
                       </span>
@@ -1242,7 +1227,7 @@ export default function CoLendingView({ solution }: CoLendingViewProps) {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

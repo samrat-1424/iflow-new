@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Check, Search, ChevronDown } from "lucide-react";
 
 // ─── iFLOW Brand Palette ──────────────────────────────────────────────────────
@@ -18,86 +19,96 @@ interface OpportunityItem {
   meta?: string[];
   category: "banks" | "nbfc" | "fintech";
   actionText?: string;
+  slug?: string;
 }
 
-/** iFLOW-specific lending opportunity data replacing Tender247 government tenders */
+/** iFLOW-specific digital lending infrastructure solutions mapped by segment */
 const OPPORTUNITIES_DATA: Record<string, OpportunityItem[]> = {
   banks: [
     {
       id: "bank-1",
-      title: "Retail Home Loan Origination",
-      subtitle: "Automated underwriting & KYC verification",
-      meta: ["Credit Decisioning", "Bureau Integration"],
+      title: "Co-Lending Infrastructure",
+      subtitle: "RBI-compliant Bank-NBFC co-origination, escrow & shared balance sheets",
+      meta: ["Blended Rates", "Escrow & 80:20 Split"],
       category: "banks",
       actionText: "Explore solution",
+      slug: "co-lending",
     },
     {
       id: "bank-2",
-      title: "Co-lending Programme Setup",
-      subtitle: "Bank-NBFC co-origination infrastructure",
-      meta: ["Pool Management", "Collections Workflow"],
+      title: "Loan Origination System (LOS)",
+      subtitle: "Automated underwriting, multi-bureau scoring & instant sanctions",
+      meta: ["Credit Decisioning", "Straight-Through Processing"],
       category: "banks",
       actionText: "Explore solution",
+      slug: "loan-origination-los",
     },
     {
       id: "bank-3",
-      title: "MSME Working Capital Loans",
-      subtitle: "GST-linked & cash-flow based lending",
-      meta: ["API Stack", "Real-time Decisioning"],
+      title: "Pool Buyout & Portfolio Acquisition",
+      subtitle: "Data tape analysis, loan portfolio due diligence & asset transfer",
+      meta: ["Due Diligence Engine", "Direct Assignment"],
       category: "banks",
       actionText: "Explore solution",
+      slug: "pool-buyout",
     },
   ],
   nbfc: [
     {
       id: "nbfc-1",
-      title: "Consumer Durable Lending",
-      subtitle: "Point-of-sale BNPL & EMI infrastructure",
-      meta: ["e-NACH Setup", "Instant Disbursal"],
+      title: "Loan Management System (LMS)",
+      subtitle: "Full lifecycle loan servicing, repayments, interest accruals & NPA tracking",
+      meta: ["Automated Reconciliations", "Flexible Servicing"],
       category: "nbfc",
       actionText: "Explore solution",
+      slug: "loan-management-lms",
     },
     {
       id: "nbfc-2",
-      title: "Gold Loan Digitalisation",
-      subtitle: "Branch + digital hybrid gold loan flow",
-      meta: ["LTV Monitoring", "Auction Workflow"],
+      title: "MSME & Agri Digital Onboarding",
+      subtitle: "Cash-flow underwriting, GST analytics & assisted field agent flows",
+      meta: ["GST & Bank Scraping", "Field Agent App"],
       category: "nbfc",
       actionText: "Explore solution",
+      slug: "msme-and-agri-tech-on-boarding-journeys",
     },
     {
       id: "nbfc-3",
-      title: "Microfinance JLG Loans",
-      subtitle: "Group lending with field-officer app",
-      meta: ["Offline Capable", "RBI-compliant"],
+      title: "DSA & Partner Network Operations",
+      subtitle: "Multi-tier channel tracking, automated commission payouts & lead flow",
+      meta: ["Lead Allocation", "Automated Commission"],
       category: "nbfc",
       actionText: "Explore solution",
+      slug: "dsa",
     },
   ],
   fintech: [
     {
       id: "fin-1",
-      title: "Embedded Finance Integration",
-      subtitle: "Plug lending into any e-commerce / SaaS",
-      meta: ["REST APIs", "Low-code Widgets"],
+      title: "BNPL & Checkout Finance Suite",
+      subtitle: "Instant digital credit lines, merchant checkouts & zero-cost EMI journeys",
+      meta: ["Instant Sanctions", "Paperless e-Mandate"],
       category: "fintech",
       actionText: "Explore solution",
+      slug: "bnpl-product-suite",
     },
     {
       id: "fin-2",
-      title: "Credit-as-a-Service Platform",
-      subtitle: "White-label LOS/LMS for fintech brands",
-      meta: ["Multi-tenant", "Custom Branding"],
+      title: "AI-Based Business Rule Engine (BRE)",
+      subtitle: "Low-latency decisioning with alternative data models & zero-code rule studio",
+      meta: ["< 200ms Decisioning", "Zero Dev Dependency"],
       category: "fintech",
       actionText: "Explore solution",
+      slug: "ai-based-bre",
     },
     {
       id: "fin-3",
-      title: "AI Credit Scoring Engine",
-      subtitle: "Alternate data & bureau score blending",
-      meta: ["ML Models", "Bureau APIs"],
+      title: "API Services & Onboarding Stack",
+      subtitle: "150+ pre-built microservice APIs for KYC, PAN, Aadhaar, CKYC & e-NACH",
+      meta: ["150+ Ready Endpoints", "Real-Time Verification"],
       category: "fintech",
       actionText: "Explore solution",
+      slug: "on-boarding-journey",
     },
   ],
 };
@@ -142,7 +153,7 @@ export default function ScrollZoomSection() {
       const minScale = isMobile ? 0.26 : 0.19;
 
       // easeOutCubic — natural deceleration
-      const zoomThresh = 0.50;
+      const zoomThresh = 0.85;
       const zp = Math.min(1, progress / zoomThresh);
       const ez = 1 - Math.pow(1 - zp, 3);
 
@@ -196,7 +207,7 @@ export default function ScrollZoomSection() {
     <section
       ref={containerRef}
       className="relative w-full bg-white select-none"
-      style={{ height: "380vh" }}
+      style={{ height: "180vh" }}
       aria-label="iFLOW Lending Journey — From opportunity to team in motion"
     >
       {/* ── Sticky Viewport ─────────────────────────────────────────────────── */}
@@ -287,9 +298,6 @@ export default function ScrollZoomSection() {
                     </div>
                     <span className="text-[11px] text-slate-500 font-medium">Digital Lending Platform</span>
                   </div>
-                  <span className="text-[9px] sm:text-[10px] font-bold tracking-widest text-slate-400 uppercase bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">
-                    SAMPLE
-                  </span>
                 </div>
 
                 {/* Search bar — light */}
@@ -359,10 +367,14 @@ export default function ScrollZoomSection() {
                                   </span>
                                 ))}
                               </div>
-                              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#7E22CE] hover:text-[#9a3f91]">
-                                <span>{item.actionText}</span>
+                              <Link
+                                href={item.slug ? `/solutions/${item.slug}` : "/solutions"}
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#623f99] hover:text-[#523380] transition-colors"
+                              >
+                                <span>{item.actionText || "Explore solution"}</span>
                                 <ArrowUpRight className="w-3 h-3" />
-                              </span>
+                              </Link>
                             </div>
                           )}
                         </div>
@@ -371,32 +383,12 @@ export default function ScrollZoomSection() {
                   })}
                 </div>
 
-                {/* Bottom status bar */}
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-purple-100 border border-purple-200/60 text-[#7E22CE] flex items-center justify-center font-bold text-[10px]">
-                      ↗
-                    </span>
-                    <div>
-                      <span className="font-semibold text-slate-800 block leading-tight">Solution shortlisted</span>
-                      <span className="text-[10px] text-slate-400">Next: schedule a demo &amp; go-live</span>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-mono font-semibold text-[#7E22CE]">Ready</span>
-                </div>
-
               </div>
             </div>
 
             {/* RIGHT: Scene Copy */}
             <div className="lg:col-span-5 flex flex-col items-start text-left z-10">
               <div className="w-full max-w-lg bg-white/85 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/90 shadow-[0_20px_50px_rgba(59,18,89,0.08)]">
-                {/* Step kicker */}
-                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#7E22CE] mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#9a3f91] animate-pulse" />
-                  01 / LENDING DISCOVERY
-                </span>
-
                 {/* Headline */}
                 <h2 className="text-3xl sm:text-4xl font-black text-[#0B132B] tracking-tight leading-[1.1] mb-3">
                   Lending Discovery
@@ -438,10 +430,19 @@ export default function ScrollZoomSection() {
           {/* Bottom chapter bar */}
           <div className="absolute bottom-4 inset-x-0 flex items-center justify-between px-8 text-[10px] sm:text-xs font-semibold text-slate-500/70 pointer-events-none">
             <span className="tracking-widest">01 — DISCOVER</span>
-            <div className="flex items-center gap-1.5 animate-bounce text-slate-600/60">
+            <button
+              type="button"
+              onClick={() => {
+                if (containerRef.current) {
+                  const targetScroll = containerRef.current.offsetTop + containerRef.current.offsetHeight - window.innerHeight + 2;
+                  window.scrollTo({ top: targetScroll, behavior: "smooth" });
+                }
+              }}
+              className="pointer-events-auto cursor-pointer flex items-center gap-1.5 animate-bounce text-slate-600/70 hover:text-[#623f99] transition-colors"
+            >
               <span>SCROLL TO EXPLORE</span>
               <ChevronDown className="w-3.5 h-3.5" />
-            </div>
+            </button>
             <span className="font-mono text-[10px]">iFLOW PLATFORM</span>
           </div>
 

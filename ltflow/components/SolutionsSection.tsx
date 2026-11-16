@@ -175,10 +175,15 @@ export default function SolutionsSection({
             return fetched ? { ...s, ...fetched, id: s.id } : s;
           });
 
-          // Also include any new solutions from Strapi that aren't in ORDERED_SOLUTIONS
+          // Also include any new solutions from Strapi that aren't in ORDERED_SOLUTIONS (excluding AI Based BRE from home)
           const orderedSlugs = new Set(ORDERED_SOLUTIONS.map((s) => s.slug));
           const extraSolutions = fetchedSolutions.filter(
-            (s) => !orderedSlugs.has(s.slug) && s.slug !== "dsa-management-system" && s.slug !== "ai-ml-score-models"
+            (s) =>
+              !orderedSlugs.has(s.slug) &&
+              s.slug !== "dsa-management-system" &&
+              s.slug !== "ai-ml-score-models" &&
+              s.slug !== "ai-based-bre" &&
+              !s.slug.includes("bre")
           );
 
           setSolutions([...baseList, ...extraSolutions]);
@@ -194,9 +199,9 @@ export default function SolutionsSection({
       {/* Section Header */}
       <div className="max-w-4xl mx-auto text-center mb-14">
         <Reveal threshold={0.1} animationType="fade-up">
-          <p className="text-xs font-mono font-semibold uppercase tracking-[0.22em] text-purple-700 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
             IFLOW SOLUTIONS
-          </p>
+          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-slate-900 tracking-tight leading-tight">
             Explore our latest in{" "}
             <span className="text-[#9a3f91]">
@@ -238,10 +243,7 @@ export default function SolutionsSection({
                       <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-[#623f99] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
 
-                    {/* Tag + Title + Description */}
-                    <p className="text-[11px] font-mono font-semibold tracking-wider uppercase text-purple-700 mb-1.5">
-                      {meta.tag}
-                    </p>
+                    {/* Title + Description */}
                     <h3 className="text-2xl font-bold text-slate-900 group-hover:text-[#623f99] transition-colors mb-2">
                       {solution.title}
                     </h3>
@@ -323,10 +325,7 @@ export default function SolutionsSection({
                           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#623f99] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                         </div>
 
-                        {/* Tag + Title + Description */}
-                        <p className="text-[10px] font-mono font-semibold tracking-wider uppercase text-purple-700 mb-1">
-                          {meta.tag}
-                        </p>
+                        {/* Title + Description */}
                         <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#623f99] transition-colors mb-2 min-h-[3.25rem] flex items-start">
                           {solution.title}
                         </h3>
@@ -359,10 +358,7 @@ export default function SolutionsSection({
                         <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-[#623f99] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                       </div>
 
-                      {/* Tag + Title + Description */}
-                      <p className="text-[11px] font-mono font-semibold tracking-wider uppercase text-purple-700 mb-1.5">
-                        {poolMeta.tag}
-                      </p>
+                      {/* Title + Description */}
                       <h3 className="text-2xl font-bold text-slate-900 group-hover:text-[#623f99] transition-colors mb-2">
                         {poolBuyout.title}
                       </h3>
@@ -418,10 +414,7 @@ export default function SolutionsSection({
                             <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#623f99] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                           </div>
 
-                          {/* Tag + Title + Description */}
-                          <p className="text-[10px] font-mono font-semibold tracking-wider uppercase text-purple-700 mb-1">
-                            {meta.tag}
-                          </p>
+                          {/* Title + Description */}
                           <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#623f99] transition-colors mb-2">
                             {solution.title}
                           </h3>
@@ -456,7 +449,7 @@ export default function SolutionsSection({
             )
             .filter(Boolean) as typeof solutions;
 
-          // Include any dynamically added solutions from Strapi (e.g. AI Based BRE)
+          // Handled slugs + explicitly excluded for home section (e.g. AI Based BRE)
           const handledSlugs = new Set([
             "co-lending",
             "ai-intelligent-suite",
@@ -472,8 +465,12 @@ export default function SolutionsSection({
             "bicri",
             "bnpl-product-suite",
             "ai-ml-score-models",
+            "ai-based-bre",
+            "bre",
           ]);
-          const dynamicExtra = solutions.filter((s) => !handledSlugs.has(s.slug));
+          const dynamicExtra = solutions.filter(
+            (s) => !handledSlugs.has(s.slug) && !s.slug.includes("bre")
+          );
           const allBottomCards = [...remainingCards, ...dynamicExtra];
 
           return (
@@ -509,10 +506,7 @@ export default function SolutionsSection({
                             <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#623f99] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                           </div>
 
-                          {/* Tag + Title + Description */}
-                          <p className="text-[10px] font-mono font-semibold tracking-wider uppercase text-purple-700 mb-1">
-                            {meta.tag}
-                          </p>
+                          {/* Title + Description */}
                           <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#623f99] transition-colors mb-2 min-h-[3.25rem] flex items-start">
                             {solution.title}
                           </h3>

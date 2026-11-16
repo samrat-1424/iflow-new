@@ -255,23 +255,20 @@ export default function BreRuleStudioSection() {
 
       <div className="relative max-w-7xl mx-auto z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-mono font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
             <Sliders className="w-3.5 h-3.5 text-[#9a3f91]" />
             SIGNATURE CAPABILITY
           </span>
 
           <h2
             id="rule-studio-heading"
-            className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug"
           >
-            Configure Credit Rules Without{" "}
-            <span className="bg-gradient-to-r from-[#623f99] via-[#7c3aed] to-[#9a3f91] bg-clip-text text-transparent">
-              Rebuilding Your Application
-            </span>
+            Configure Credit Rules Without Rebuilding Your Application
           </h2>
 
-          <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl mx-auto">
+          <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
             Give authorised Credit, Risk, and Policy teams a structured interface to maintain decision logic according to institutional policies and product requirements.
           </p>
         </div>
@@ -281,7 +278,7 @@ export default function BreRuleStudioSection() {
           {/* Studio Top Control Bar */}
           <div className="px-6 sm:px-8 py-5 border-b border-slate-200/80 bg-gradient-to-r from-purple-50/40 via-white to-purple-50/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs font-bold text-purple-600 uppercase tracking-wider mb-1">
+              <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#9a3f91] uppercase tracking-wider mb-1">
                 <span>BRE STUDIO</span>
                 <span className="text-slate-300">/</span>
                 <span className="text-slate-500">MSME GROWTH</span>

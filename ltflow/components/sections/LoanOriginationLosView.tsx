@@ -926,7 +926,7 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-[#623f99] border border-purple-200/70 tracking-widest uppercase">
+                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] border border-purple-200/60 tracking-widest uppercase">
                         PILLAR {pillar.idx}
                       </span>
                       <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -1054,13 +1054,10 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
 
                   <div>
                     {/* Icon & Badge */}
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="mb-6">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/70 text-[#623f99] flex items-center justify-center border border-purple-200/60 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300 shadow-xs">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="font-mono text-[10px] font-bold text-slate-400 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full uppercase group-hover:text-[#9a3f91] group-hover:border-purple-200 transition-colors">
-                        BENEFIT 0{idx + 1}
-                      </span>
                     </div>
 
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
@@ -1070,11 +1067,6 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
                     <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
                       {card.description}
                     </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#7c3aed]">
-                    <span>Institutional Value</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               );
@@ -1156,11 +1148,6 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
                       <p className="mt-2.5 text-xs text-slate-600 leading-relaxed font-normal">
                         {module.description}
                       </p>
-                    </div>
-
-                    <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#7c3aed]">
-                      <span>Configurable</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 );
@@ -1324,7 +1311,7 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/60 text-[#623f99] flex items-center justify-center border border-purple-200/60 shadow-xs group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300">
                         <Icon className="w-6 h-6 transition-colors" />
                       </div>
-                      <span className="font-mono text-[10px] font-bold tracking-wider uppercase text-slate-500 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full group-hover:text-[#9a3f91] group-hover:border-purple-200 transition-colors">
+                      <span className="font-mono text-[10px] font-bold tracking-wider uppercase text-slate-500 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full group-hover:text-[#623f99] group-hover:border-purple-300 transition-colors">
                         {fallback.badge}
                       </span>
                     </div>
@@ -1335,13 +1322,6 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
                     <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
                       {cardDesc}
                     </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#7c3aed]">
-                    <span className="group-hover:translate-x-0.5 transition-transform">
-                      Configure Product Flow
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               );
@@ -1601,7 +1581,7 @@ export default function LoanOriginationLosView({ solution }: LoanOriginationLosV
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/book-a-demo"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

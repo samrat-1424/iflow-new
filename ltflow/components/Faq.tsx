@@ -32,8 +32,8 @@ export default function Faq({ categories }: FaqProps) {
     <div className="bg-[#F8FAFC] min-h-screen font-sans">
       {/* Header Section */}
       <div className="pt-20 pb-10 px-6 text-center max-w-4xl mx-auto flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f8f5ff] border border-[#eaddff] text-[#623f99] text-[11px] font-semibold uppercase tracking-widest mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#623f99]"></span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/80 border border-purple-200/60 text-[#9a3f91] text-xs font-bold uppercase tracking-widest mb-8 shadow-2xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#9a3f91]"></span>
           HELP CENTER
         </div>
         <h1 className="text-4xl md:text-[3.5rem] leading-tight font-bold text-[#0F172A] mb-6 tracking-tight">

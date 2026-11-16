@@ -5,7 +5,19 @@ import { usePathname } from "next/navigation";
 
 export default function ReadyToTransformSection() {
   const pathname = usePathname();
-  if (pathname === "/book-a-demo" || pathname?.startsWith("/book-a-demo/")) {
+
+  // Hide on /book-a-demo and all individual solution pages (/solutions/[slug]),
+  // but keep on the main /solutions hub page and other pages.
+  const isIndividualSolution =
+    Boolean(pathname?.startsWith("/solutions/")) &&
+    pathname !== "/solutions" &&
+    pathname !== "/solutions/";
+
+  if (
+    pathname === "/book-a-demo" ||
+    pathname?.startsWith("/book-a-demo/") ||
+    isIndividualSolution
+  ) {
     return null;
   }
 
@@ -21,7 +33,7 @@ export default function ReadyToTransformSection() {
         
       <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-14 py-14">
         <div className="max-w-3xl">
-          <p className="text-small font-semibold tracking-widest text-[#F26522] ">
+          <p className="text-xs sm:text-sm font-bold tracking-widest text-[#9a3f91] uppercase">
             READY TO TRANSFORM?
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
@@ -36,7 +48,7 @@ export default function ReadyToTransformSection() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href="/book-a-demo"
-              className="inline-flex items-center justify-center rounded-xl bg-[#F26522] px-7 py-3 text-sm font-semibold text-white hover:opacity-95"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] border border-white/40 px-7 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:border-white/70 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               Schedule a Demo
               <span className="ml-3 text-lg leading-none">→</span>

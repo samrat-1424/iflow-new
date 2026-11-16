@@ -218,7 +218,7 @@ export default function ConnectedEcosystemSection() {
                   className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-left cursor-pointer ${
                     isActive
                       ? "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white shadow-lg shadow-purple-900/20 scale-[1.02]"
-                      : "text-slate-600 hover:text-[#9a3f91] hover:bg-purple-50/80"
+                      : "text-slate-600 hover:text-[#623f99] hover:bg-purple-50/80"
                   }`}
                 >
                   <div
@@ -285,16 +285,9 @@ export default function ConnectedEcosystemSection() {
               {/* Left Column: Movement Details */}
               <div className="lg:col-span-7 flex flex-col justify-between">
                 <div>
-                  {/* Step Eyebrow with pulsing 3D badge */}
+                  {/* Step Eyebrow */}
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9a3f91]/10 border border-[#9a3f91]/25 text-[#9a3f91] font-mono text-xs font-bold tracking-wider uppercase shadow-xs">
-                      <span
-                        className="w-2 h-2 rounded-full animate-ping"
-                        style={{ backgroundColor: current.accent }}
-                      />
-                      MOVEMENT {current.step} OF 04
-                    </span>
-                    <span className="text-xs font-mono font-medium text-slate-500 uppercase tracking-widest">
+                    <span className="text-xs font-mono font-bold text-[#9a3f91] uppercase tracking-widest">
                       {current.tagline}
                     </span>
                   </div>
@@ -335,7 +328,7 @@ export default function ConnectedEcosystemSection() {
                       <Link
                         key={mod.label}
                         href={mod.href}
-                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50/90 border border-purple-200/80 text-purple-900 hover:text-[#9a3f91] hover:border-[#9a3f91]/50 hover:bg-white text-xs font-medium transition-all hover:scale-105 shadow-xs"
+                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50/90 border border-purple-200/80 text-purple-900 hover:text-[#623f99] hover:border-purple-300 hover:bg-white text-xs font-medium transition-all hover:scale-105 shadow-xs"
                       >
                         <span>{mod.label}</span>
                         <ArrowRight className="w-3 h-3 text-[#9a3f91]" />
@@ -392,7 +385,7 @@ export default function ConnectedEcosystemSection() {
               setIsAutoPlay(false);
             }}
             aria-label="Previous movement"
-            className="w-11 h-11 rounded-full bg-white border border-purple-200 text-purple-800 hover:text-[#9a3f91] hover:border-[#9a3f91]/40 hover:bg-purple-50 flex items-center justify-center transition-all shadow-sm hover:shadow cursor-pointer"
+            className="w-11 h-11 rounded-full bg-white border border-purple-200 text-purple-800 hover:text-[#623f99] hover:border-purple-300 hover:bg-purple-50 flex items-center justify-center transition-all shadow-sm hover:shadow cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -422,7 +415,7 @@ export default function ConnectedEcosystemSection() {
               setIsAutoPlay(false);
             }}
             aria-label="Next movement"
-            className="w-11 h-11 rounded-full bg-white border border-purple-200 text-purple-800 hover:text-[#9a3f91] hover:border-[#9a3f91]/40 hover:bg-purple-50 flex items-center justify-center transition-all shadow-sm hover:shadow cursor-pointer"
+            className="w-11 h-11 rounded-full bg-white border border-purple-200 text-purple-800 hover:text-[#623f99] hover:border-purple-300 hover:bg-purple-50 flex items-center justify-center transition-all shadow-sm hover:shadow cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

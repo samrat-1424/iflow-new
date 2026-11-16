@@ -147,8 +147,8 @@ export default function CaseStudies() {
               {/* Left Column: Eyebrow, Heading, Description, CTA Buttons, Trust Points */}
               <div className="lg:col-span-7">
                 {/* Eyebrow Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/70 text-[#7c3aed] text-xs font-mono font-bold tracking-wider uppercase mb-5 shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#7c3aed]" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/80 border border-purple-200/60 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-5 shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#9a3f91]" />
                   CLIENT SUCCESS STORIES
                 </div>
 
@@ -289,7 +289,7 @@ export default function CaseStudies() {
                           router.push("/case-studies/co-lending");
                         }
                       }}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#623f99] hover:text-[#9a3f91] transition-colors cursor-pointer group"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#623f99] hover:text-[#523380] transition-colors cursor-pointer group"
                     >
                       <span>Read Story</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -306,7 +306,7 @@ export default function CaseStudies() {
       <div id="case-stories-list" className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-16 sm:py-24">
         <Reveal threshold={0.1} animationType="fade-up">
           <div className="mb-10">
-            <span className="font-mono text-xs font-bold tracking-[0.22em] text-[#7c3aed] uppercase block mb-3">
+            <span className="font-mono text-xs font-bold tracking-[0.22em] text-[#9a3f91] uppercase block mb-3">
               ALL CLIENT STORIES
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
@@ -355,7 +355,7 @@ export default function CaseStudies() {
                     className={`group relative rounded-3xl transition-all duration-300 ${
                       isComingSoon
                         ? "bg-[#FAFAFC]/90 border border-gray-200/80 p-8 sm:p-10 max-w-xl shadow-xs"
-                        : "bg-gradient-to-br from-[#FAF5FF]/70 via-[#FDFBFD] to-white border border-[#9a3f91]/30 hover:border-[#9a3f91]/60 p-8 sm:p-12 shadow-sm hover:shadow-xl"
+                        : "bg-gradient-to-br from-[#FAF5FF]/70 via-[#FDFBFD] to-white border border-purple-100/90 hover:border-purple-300 p-8 sm:p-12 shadow-sm hover:shadow-xl hover:shadow-purple-950/10"
                     }`}
                   >
                     {/* Top Row: Category Badge & Coming Soon Pill */}
@@ -447,7 +447,7 @@ export default function CaseStudies() {
                           <button
                             type="button"
                             onClick={() => handleOpenStudy(study)}
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-[#623f99] hover:text-[#9a3f91] transition-colors cursor-pointer group-hover:translate-x-0.5"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-[#623f99] hover:text-[#523380] transition-colors cursor-pointer group-hover:translate-x-0.5"
                           >
                             <span>Explore</span>
                             <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -68,8 +68,8 @@ export default function NbfcCaseStudySections() {
       {/* SECTION 1: THE CHALLENGE */}
       <Reveal threshold={0.1} animationType="fade-up">
         <section className="bg-white rounded-3xl p-8 sm:p-12 border border-purple-100/60 shadow-sm">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#a259e6] uppercase mb-4">
-            <span className="w-5 h-[2px] bg-[#a259e6]" />
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#9a3f91] uppercase mb-4">
+            <span className="w-5 h-[2px] bg-[#9a3f91]" />
             <span>THE CHALLENGE</span>
           </div>
 
@@ -117,8 +117,8 @@ export default function NbfcCaseStudySections() {
       {/* SECTION 2: THE SOLUTION */}
       <Reveal threshold={0.1} animationType="fade-up">
         <section className="bg-white rounded-3xl p-8 sm:p-12 border border-purple-100/60 shadow-sm">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#a259e6] uppercase mb-4">
-            <span className="w-5 h-[2px] bg-[#a259e6]" />
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#9a3f91] uppercase mb-4">
+            <span className="w-5 h-[2px] bg-[#9a3f91]" />
             <span>THE SOLUTION</span>
           </div>
 
@@ -218,8 +218,8 @@ export default function NbfcCaseStudySections() {
       {/* SECTION 3: BEFORE VS AFTER (THE TRANSFORMATION) */}
       <Reveal threshold={0.1} animationType="fade-up">
         <section className="bg-white rounded-3xl p-8 sm:p-12 border border-purple-100/60 shadow-sm">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#a259e6] uppercase mb-4">
-            <span className="w-5 h-[2px] bg-[#a259e6]" />
+          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#9a3f91] uppercase mb-4">
+            <span className="w-5 h-[2px] bg-[#9a3f91]" />
             <span>BEFORE VS AFTER</span>
           </div>
 

@@ -170,7 +170,7 @@ export default function ConnectedApiPlatformSection({
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-[#623f99] border border-purple-200/70 tracking-widest uppercase">
+                    <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] border border-purple-200/60 tracking-widest uppercase">
                       PILLAR {pillar.idx}
                     </span>
                     <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider">

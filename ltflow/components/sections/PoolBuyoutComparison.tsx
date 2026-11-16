@@ -44,7 +44,7 @@ export default function PoolBuyoutComparison() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-[#a259e6] text-xs font-bold tracking-wider uppercase mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-wider uppercase mb-4 border border-purple-200/60 shadow-2xs">
             COMPARISON
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a1f44] text-center mb-4">

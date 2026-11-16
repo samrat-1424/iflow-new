@@ -41,9 +41,9 @@ export default function FeaturedBlogCard({ blog }: FeaturedBlogCardProps) {
           {/* Right: Content */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             {/* Tag pill */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-[11px] font-bold tracking-wider text-[#623f99] uppercase mb-4 w-fit">
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 border border-purple-200/60 text-xs font-bold tracking-wider text-[#9a3f91] uppercase mb-4 w-fit shadow-2xs">
               <span>FEATURED</span>
-              <span className="text-[#a855f7]">·</span>
+              <span className="text-[#9a3f91]">·</span>
               <span>{category}</span>
             </div>
 

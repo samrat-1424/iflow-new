@@ -23,8 +23,7 @@ export default function HeroSection() {
         {/* Left Column: Headline & CTA */}
         <div className="lg:col-span-5 flex flex-col items-start text-left z-10">
           {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-200/90 bg-white/80 backdrop-blur-md shadow-xs text-[11px] sm:text-xs font-semibold tracking-[0.14em] text-purple-700 uppercase mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-purple-200/60 bg-purple-100/80 shadow-2xs text-xs font-bold tracking-widest text-[#9a3f91] uppercase mb-3 sm:mb-4">
             DIGITAL LENDING INFRASTRUCTURE
           </div>
 
@@ -46,7 +45,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
               href="/book-a-demo"
-              className="bg-gradient-to-r from-[#3B1259] to-[#7E22CE] hover:from-[#4A1870] hover:to-[#9333EA] text-white font-semibold px-6 sm:px-7 py-2.5 sm:py-3 rounded-full shadow-lg shadow-purple-900/15 flex items-center gap-2 text-sm sm:text-base transition-all duration-200 hover:scale-[1.02]"
+              className="bg-gradient-to-r from-[#623f99] to-[#9a3f91] hover:opacity-95 text-white font-semibold px-6 sm:px-7 py-2.5 sm:py-3 rounded-full shadow-lg shadow-purple-900/15 flex items-center gap-2 text-sm sm:text-base transition-all duration-200 hover:scale-[1.02]"
             >
               <span>Book A Demo</span>
               <ArrowRight className="w-4 h-4" />

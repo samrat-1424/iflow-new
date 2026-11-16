@@ -10,7 +10,6 @@ import {
   FileCheck,
   BrainCircuit,
   Network,
-  ArrowRight,
   LucideIcon,
 } from "lucide-react";
 
@@ -219,16 +218,16 @@ export default function BreBuiltForTeamsSection({
           )}
         </div>
 
-        {/* 6 Cards Grid (Matching Co-Lending 3-Pillars Card Style in a 2x3 Grid) */}
+        {/* 6 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {pillars.map((pillar, i) => {
             const IconComp = pillar.icon;
             return (
               <div
                 key={i}
-                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300"
+                className="group relative flex flex-col rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300"
               >
-                {/* Image Container with Top-Left Floating Badge */}
+                {/* Image Container */}
                 <div className="relative w-full aspect-[16/10] bg-slate-50 border-b border-slate-100 p-4 flex items-center justify-center overflow-hidden">
                   {pillar.image ? (
                     <Image
@@ -243,39 +242,16 @@ export default function BreBuiltForTeamsSection({
                       <IconComp className="w-14 h-14 text-purple-300" />
                     </div>
                   )}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10.5px] font-mono font-bold tracking-wider text-[#623f99] border border-purple-100 shadow-2xs">
-                      <IconComp className="w-3.5 h-3.5 text-[#9a3f91]" />
-                      {pillar.badge}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Body Content */}
-                <div className="p-7 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  {/* Metric Highlight Box */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
-                        {pillar.metricLabel}
-                      </span>
-                      <span className="text-sm sm:text-base font-bold text-[#0a1f44] tracking-tight">
-                        {pillar.metric}
-                      </span>
-                    </div>
-                    <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#7c3aed] flex items-center justify-center group-hover:bg-[#623f99] group-hover:text-white transition-colors">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
+                <div className="p-7 flex-1 flex flex-col justify-start">
+                  <h3 className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
+                    {pillar.description}
+                  </p>
                 </div>
               </div>
             );

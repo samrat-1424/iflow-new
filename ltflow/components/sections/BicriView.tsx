@@ -353,8 +353,8 @@ export default function BicriView({ solution }: BicriViewProps) {
                     key={idx}
                     className="p-5 sm:p-6 rounded-2xl bg-[#fcfaff] border border-purple-100/90 shadow-2xs hover:shadow-md hover:border-purple-300 transition-all duration-300 flex items-start gap-4"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-purple-100/80 border border-purple-200/60 flex items-center justify-center text-[#7E22CE] shrink-0 font-black text-xs">
-                      0{idx + 1}
+                    <div className="w-10 h-10 rounded-xl bg-purple-100/80 border border-purple-200/60 flex items-center justify-center text-[#623f99] shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-[#623f99]" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base font-bold text-slate-900 mb-1 leading-snug">
@@ -498,11 +498,6 @@ export default function BicriView({ solution }: BicriViewProps) {
                             </p>
                           )}
                         </div>
-
-                        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#623f99]">
-                          <span>BICRI Capability</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </div>
                       </div>
                     );
                   })}
@@ -575,11 +570,6 @@ export default function BicriView({ solution }: BicriViewProps) {
                         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                           {desc}
                         </p>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-purple-100/70 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                        <span>Explore Architecture</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
                   </div>
@@ -666,11 +656,6 @@ export default function BicriView({ solution }: BicriViewProps) {
                             {sanitize(card.description)}
                           </p>
                         )}
-                      </div>
-
-                      <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#623f99]">
-                        <span>{card.button_text || "Know more"}</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
                   );
@@ -985,7 +970,7 @@ export default function BicriView({ solution }: BicriViewProps) {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

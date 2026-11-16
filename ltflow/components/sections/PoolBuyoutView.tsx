@@ -382,20 +382,6 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
             <div className="lg:col-span-6">
               <div className="relative rounded-3xl border border-purple-200/90 bg-gradient-to-br from-white via-purple-50/30 to-white p-7 sm:p-9 shadow-2xl shadow-purple-950/10 overflow-hidden group">
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#623f99] via-[#7c3aed] to-[#9a3f91]" />
-                
-                <div className="flex items-center justify-between pb-5 mb-6 border-b border-purple-100/80">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-3 h-3 rounded-full bg-rose-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                    <span className="ml-2 font-mono text-xs font-semibold text-slate-500">
-                      iFLOW_Pool_Buyout_Engine.v2
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                    RBI DA Compliant
-                  </span>
-                </div>
 
                 {/* Workflow Stack visualizer */}
                 <div className="space-y-3 font-mono text-xs">
@@ -485,7 +471,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                             }`}
                           >
                             <div className="flex items-center gap-3">
-                              <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-[#623f99] border border-purple-200/70 tracking-widest uppercase">
+                              <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] border border-purple-200/60 tracking-widest uppercase">
                                 PILLAR {pillar.idx}
                               </span>
                               <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -721,7 +707,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                         className="group rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:border-purple-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
                       >
                         <div>
-                          <div className="flex items-center justify-between mb-5">
+                          <div className="mb-5">
                             <div className="w-14 h-14 rounded-2xl bg-purple-50 text-[#623f99] flex items-center justify-center border border-purple-100/80 shadow-xs group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300 overflow-hidden p-2.5">
                               {cIconUrl ? (
                                 <Image
@@ -736,9 +722,6 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                                 <CardIcon className="w-6 h-6 transition-colors" />
                               )}
                             </div>
-                            <span className="font-mono text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-full group-hover:text-[#9a3f91] group-hover:border-purple-200 transition-colors">
-                              #{cIdx + 1}
-                            </span>
                           </div>
 
                           <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug">
@@ -752,12 +735,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                           )}
                         </div>
 
-                        {card.button_text && (
-                          <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                            <span>{card.button_text}</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        )}
+
                       </div>
                     );
                   })}
@@ -811,21 +789,6 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                 {mainMediaUrl && (
                   <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-purple-950/15 border border-purple-200/90 mb-16 bg-slate-950 group">
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#623f99] via-[#7c3aed] to-[#9a3f91] z-10" />
-
-                    {/* Window Title Bar */}
-                    <div className="px-5 py-3 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
-                      <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
-                        <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                        <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-                        <span className="ml-2 font-sans font-semibold text-slate-300">
-                          POOLFLOW™ Enterprise Platform Walkthrough — Batch List &amp; Active Tranche Monitor
-                        </span>
-                      </div>
-                      <span className="text-emerald-400 font-bold bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-800/60">
-                        Live Tranche Monitor
-                      </span>
-                    </div>
 
                     {isVideo ? (
                       <div className="relative w-full aspect-[16/9] bg-slate-900 overflow-hidden">
@@ -945,9 +908,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                           <ItemIcon className="w-6 h-6" />
                         </div>
                         <div>
-                          <span className="font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
-                            MODULE #{iIdx + 1}
-                          </span>
+                          
                           <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#623f99] transition-colors">
                             {itemLabel}
                           </h3>
@@ -1069,7 +1030,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
 
                       <div className="flex-1 space-y-3.5">
                         <div className="flex flex-wrap items-center justify-between gap-3">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-[#623f99] text-xs font-mono font-bold uppercase tracking-wider">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-mono font-bold uppercase tracking-wider border border-purple-200/60">
                             PHASE {activeWorkflowIdx + 1} OF {steps.length}
                           </span>
                           <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
@@ -1110,7 +1071,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
                             className={`inline-flex items-center gap-1 font-semibold px-4 py-2 rounded-xl transition-all ${
                               activeWorkflowIdx === steps.length - 1
                                 ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
-                                : "bg-[#623f99] text-white hover:bg-[#4d3179] shadow-sm cursor-pointer"
+                                : "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white hover:opacity-95 shadow-md shadow-purple-900/20 cursor-pointer"
                             }`}
                           >
                             <span>Next Phase &rarr;</span>
@@ -1305,7 +1266,7 @@ export default function PoolBuyoutView({ solution }: PoolBuyoutViewProps) {
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/book-a-demo"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

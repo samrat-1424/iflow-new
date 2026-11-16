@@ -10,21 +10,16 @@ import {
   Building2,
   Users,
   LineChart,
-  ShieldCheck,
-  Zap,
   CheckCircle2,
   ArrowRight,
   ArrowUpRight,
-  Sparkles,
   Layers,
   Cpu,
   BrainCircuit,
   Coins,
   CreditCard,
-  RefreshCw,
   BarChart3,
   Activity,
-  Workflow,
   FileCheck,
   ChevronDown,
   FileText,
@@ -32,9 +27,7 @@ import {
   Wallet,
   Landmark,
   Smartphone,
-  Scale,
   Check,
-  Minus,
   HelpCircle,
   Briefcase,
   Sliders,
@@ -75,7 +68,6 @@ function parseBulletPoints(text: string | null | undefined): string[] {
 
 export default function DistributionView({ solution }: DistributionViewProps) {
   const [activeTab, setActiveTab] = useState<string>("all");
-  const [activePipelineStep, setActivePipelineStep] = useState<number>(1);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const sections: any[] = solution?.sections || [];
@@ -92,13 +84,14 @@ export default function DistributionView({ solution }: DistributionViewProps) {
         (Array.isArray(s.models) && s.models.length > 0)
     ) || {};
 
-  // Section 1: BNPL / Workflow Section ("End-to-End Partner Lifecycle Journey")
+  // Section 1: BNPL Workflow Section ("End-to-End Partner Lifecycle Journey")
+  // Note: Exclude `solution.workflow-section` here so Strapi Workflow Sections (`steps[]`)
+  // flow into `additionalSections` and render via SectionRenderer's interactive workflow UI.
   const secWorkflow =
     sections.find(
       (s) =>
         s &&
         (s.__component === "solution.bnpl-workflow-section" ||
-          s.__component === "solution.workflow-section" ||
           String(s.title || "").toLowerCase().includes("partner lifecycle"))
     ) ||
     sections.find(
@@ -137,24 +130,6 @@ export default function DistributionView({ solution }: DistributionViewProps) {
   const additionalSections = sections.filter(
     (s: any) => s && (!s.id || !handledIds.has(s.id))
   );
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // 1. Hero Overview Section Data
-  // ────────────────────────────────────────────────────────────────────────────
-  const heroBadge = "SMART LOAN DISTRIBUTION PLATFORM";
-  const heroTitle =
-    sanitize(solution?.title) || "Accelerate Loan Reach Through an Intelligent Distribution Network";
-  const heroSubtitle =
-    sanitize(solution?.description) ||
-    "Connect lenders with the right borrowers through a digital-first network built for banks, NBFCs, and fintech companies to accelerate loan disbursals with automated rule-based routing.";
-  const heroBannerImg = toUrl(solution?.banner?.url || "/uploads/distrbution_9a85df6e30.png");
-
-  const heroHighlights = [
-    "Omnichannel partner lead capture via digital portals, APIs, and mobile apps",
-    "Intelligent Business Rule Engine (BRE) routing leads to optimal lending partners",
-    "Unified multi-product catalog spanning secured, unsecured, & investment products",
-    "Automated commission calculation, transparent GST invoicing, & escrow payouts",
-  ];
 
   // ────────────────────────────────────────────────────────────────────────────
   // 2. Offerings & Product Architecture Data (From Strapi Section 0)
@@ -238,16 +213,21 @@ export default function DistributionView({ solution }: DistributionViewProps) {
   // ────────────────────────────────────────────────────────────────────────────
   // 3. End-to-End Partner Lifecycle Journey Data (From Strapi Section 1)
   // ────────────────────────────────────────────────────────────────────────────
+  const legacyLifecycleSubtitle =
+    "a unified distribution architecture connecting lead-gen partners, origination engines, automated bre decisioning, and institutional capital partners in real time.";
   const workflowBadge =
     sanitize(lifecycleSections[0]?.badge) ||
     sanitize(secWorkflow.badge) ||
     "THE DISTRIBUTION LIFECYCLE";
   const workflowTitle =
     sanitize(secWorkflow.title) || "End-to-End Partner Lifecycle Journey";
-  const workflowSubtitle =
+  const rawWorkflowSubtitle =
     sanitize(lifecycleSections[0]?.description) ||
-    sanitize(secWorkflow.description) ||
-    "A unified distribution architecture connecting lead-gen partners, origination engines, automated BRE decisioning, and institutional capital partners in real time.";
+    sanitize(secWorkflow.description);
+  const workflowSubtitle =
+    rawWorkflowSubtitle.toLowerCase() === legacyLifecycleSubtitle
+      ? ""
+      : rawWorkflowSubtitle;
   const workflowImg = toUrl(
     secWorkflow.image?.url ||
       "/uploads/67a4873fe9bbf8694ebc694d_user_interface_1_p_500_4ab86ea618.png"
@@ -261,7 +241,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "01",
       badge: "LEAD GENERATION & SOURCING",
       title: "Apply Now, Flow & Lead-Gen Partners",
-      subtitle: "Omnichannel lead capture across digital media, partner portals, and ecosystem integrations.",
+      subtitle: "",
       desc: "Connect direct selling agents, digital aggregators, and referral partners via white-label portals and open lending APIs.",
       icon: Smartphone,
       metric: "Omnichannel",
@@ -276,7 +256,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "02",
       badge: "DECISIONING & INTELLIGENT MATCHING",
       title: "Rule Engine & Policy Segmentation",
-      subtitle: "Every lead is assessed with an in-house BRE and AI models which assign the lead to the right lender.",
+      subtitle: "",
       desc: "Evaluate applicant credit profiles, eligibility filters, and risk thresholds to match borrowers with approving lenders.",
       icon: BrainCircuit,
       metric: "< 95ms",
@@ -291,7 +271,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "03",
       badge: "CAPITAL & ORIGINATION LAYER",
       title: "Originating BC & Capital Partners",
-      subtitle: "Every lead with verified credit segmentation is assessed by originator and co-lending capital simultaneously.",
+      subtitle: "",
       desc: "Facilitate tripartite co-lending alignments, BC originator handoffs, and institutional balance sheet allocation.",
       icon: Landmark,
       metric: "Multi-Lender",
@@ -306,8 +286,8 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "04",
       badge: "LENDER NETWORK ALLOCATION",
       title: "Lending Partners Ecosystem",
-      subtitle: "Leads are assessed with partner underwriting capabilities across diverse risk and product segments.",
-      desc: "Empower 50+ banks, NBFCs, and digital credit funds to review pre-qualified files tailored to their risk criteria.",
+      subtitle: "",
+      desc: "",
       icon: Network,
       metric: "50+ Lenders",
       metricLabel: "Ecosystem",
@@ -321,7 +301,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "05",
       badge: "UNIFIED SERVICING INTERFACE",
       title: "One Platform Multi-Product Hub",
-      subtitle: "Empower your distribution network to originate and manage multiple loan products from a single window.",
+      subtitle: "",
       desc: "Consolidate personal, MSME, secured, vehicle, and investment products into an all-in-one partner command center.",
       icon: Layers,
       metric: "100% Unified",
@@ -336,7 +316,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       idx: "06",
       badge: "REAL-TIME TRACKING & GOVERNANCE",
       title: "Know Your Application & Status MIS",
-      subtitle: "Every action, query, document approval, and payout milestone is updated for complete transparency.",
+      subtitle: "",
       desc: "Provide end-to-end visibility for partners, loan applicants, and internal operations teams with live status webhooks.",
       icon: Activity,
       metric: "Real-Time",
@@ -367,11 +347,15 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       }
       const rawImgUrl = strapiSec.image?.url || strapiSec.image?.data?.attributes?.url;
       const stepImg = rawImgUrl ? toUrl(rawImgUrl) : null;
+      const parsedSubtitle =
+        sanitize(subtitle).toLowerCase() === legacyLifecycleSubtitle
+          ? ""
+          : sanitize(subtitle);
 
       return {
         ...step,
         title: sanitize(title) || sanitize(strapiSec.title) || step.title,
-        subtitle: sanitize(subtitle) || sanitize(strapiSec.description) || step.subtitle,
+        subtitle: parsedSubtitle,
         image: stepImg || workflowImg,
       };
     }
@@ -396,39 +380,6 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       image: workflowImg,
     };
   });
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // 4. Strategic Business Value Data (3 Pillars matching Co-Lending Layout)
-  // ────────────────────────────────────────────────────────────────────────────
-  const strategicBenefits = [
-    {
-      tag: "CONVERSION EFFICIENCY",
-      title: "Smart Rule-Based Lead Allocation",
-      desc: "Eliminate lost leads and manual back-and-forth. Our in-house Business Rule Engine automatically pairs borrower credit profiles with the exact bank or NBFC highest probability to sanction.",
-      metric: "3.2x Higher",
-      metricLabel: "Conversion Rate",
-      footerHighlight: "Instant Soft Sanctions",
-      icon: Zap,
-    },
-    {
-      tag: "OPERATIONAL TRANSPARENCY",
-      title: "Automated Partner MIS & Payouts",
-      desc: "Replace spreadsheet disputes with automated commission tracking. Calculate multi-tier partner commission slabs, generate GST-compliant invoices, and settle payouts through bank escrow rails.",
-      metric: "Zero Drift",
-      metricLabel: "Payout Disputes",
-      footerHighlight: "T+0 Settlement Rails",
-      icon: RefreshCw,
-    },
-    {
-      tag: "ENTERPRISE COMPLIANCE",
-      title: "100% RBI Digital Lending Compliant",
-      desc: "Built to adhere strictly to RBI Master Directions on digital lending. Features explicit borrower consent, encrypted document handling, institutional escrow fund flows, and unalterable audit trails.",
-      metric: "100%",
-      metricLabel: "Regulatory Alignment",
-      footerHighlight: "RBI 2025 Audit Ready",
-      icon: ShieldCheck,
-    },
-  ];
 
   // ────────────────────────────────────────────────────────────────────────────
   // 5. Complete Distribution Capabilities Data (12 Modules across 4 Tabs)
@@ -534,89 +485,6 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       : distributionModules.filter((m) => m.category === activeTab);
 
   // ────────────────────────────────────────────────────────────────────────────
-  // 6. Distribution Workflow Pipeline Data (5 Stages)
-  // ────────────────────────────────────────────────────────────────────────────
-  const pipelineStages = [
-    {
-      step: 1,
-      title: "Lead Ingestion",
-      badge: "Sourcing",
-      desc: "Omnichannel capture through digital portals, mobile app SDKs, and partner APIs with instant OTP authentication and dedupe checks.",
-      features: ["Partner attribution", "Aadhaar e-KYC", "Negative list scan"],
-    },
-    {
-      step: 2,
-      title: "Intelligent BRE Routing",
-      badge: "Assessment",
-      desc: "Rule engine runs multi-bureau lookups and matches applicant risk profiles against live lender underwriting policies.",
-      features: ["Multi-bureau API", "Policy matching", "< 95ms decision"],
-    },
-    {
-      step: 3,
-      title: "Lender Syndication",
-      badge: "Submission",
-      desc: "Pre-qualified application file is simultaneously submitted to optimal banks, NBFCs, or co-lending capital partners.",
-      features: ["Direct API handoff", "Co-lending 80:20", "Document packaging"],
-    },
-    {
-      step: 4,
-      title: "Digital Sanction",
-      badge: "Approval",
-      desc: "Lenders issue formal sanction letter, verified with digital borrower agreement signing and bank account mandate setup.",
-      features: ["e-Sign agreement", "e-NACH setup", "Instant KFS issue"],
-    },
-    {
-      step: 5,
-      title: "Disbursal & Payout",
-      badge: "Settlement",
-      desc: "Fund transfer executed via RTGS/NEFT/IMPS while partner commissions are automatically credited to their registered bank accounts.",
-      features: ["T+0 Escrow disbursal", "Automated GST invoice", "Real-time MIS"],
-    },
-  ];
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // 7. Distribution Technology Benchmark Matrix
-  // ────────────────────────────────────────────────────────────────────────────
-  const comparisonData = [
-    {
-      feature: "Lead Decisioning & Allocation TAT",
-      modern: "Real-Time (< 3 Mins via AI & BRE)",
-      legacy: "2 – 5 Days (Manual File Handover)",
-      advantage: "Eliminates dropped leads and accelerates conversion across network",
-    },
-    {
-      feature: "Product Catalog Breadth",
-      modern: "Secured, Unsecured, & Investment Products",
-      legacy: "Single product or siloed agreements",
-      advantage: "One window for retail personal, MSME, mortgages, and wealth assets",
-    },
-    {
-      feature: "Application Status Transparency",
-      modern: "100% Real-Time Webhooks & Portal MIS",
-      legacy: "Opaque manual phone & email follow-ups",
-      advantage: "Full visibility of verification, credit sanction, and disbursal progress",
-    },
-    {
-      feature: "Partner Commission Reconciliation",
-      modern: "Automated Slab Engine & T+0 Escrow Settlement",
-      legacy: "Manual spreadsheet reconciliation (30–60 Days)",
-      advantage: "Zero payout disputes with automated GST invoices and instant transfers",
-    },
-    {
-      feature: "Sub-Agent & DSA Hierarchy Control",
-      modern: "Granular Role-Based Portal Access",
-      legacy: "Unmanaged offline broker chains",
-      advantage: "Complete governance over branch managers, sub-agents, and DSA teams",
-    },
-    {
-      feature: "Regulatory & Data Security Standard",
-      modern: "100% RBI 2025 Digital Lending Compliance",
-      legacy: "Vulnerable unencrypted document sharing",
-      advantage: "Enterprise data masking, consent management, and tamper-proof audit trails",
-    },
-  ];
-
-  // ────────────────────────────────────────────────────────────────────────────
   // 8. FAQ Data (Direct from Strapi CMS)
   // ────────────────────────────────────────────────────────────────────────────
   const faqTitle = sanitize(solution?.faq_section?.title) || "You Ask. We Answer!";
@@ -664,119 +532,6 @@ export default function DistributionView({ solution }: DistributionViewProps) {
 
   return (
     <div className="min-h-screen bg-white text-slate-800">
-            {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION 1: HERO OVERVIEW SECTION
-          Directly driven by Strapi solution metadata & banner
-      ────────────────────────────────────────────────────────────────────────── */}
-      <section
-        id="overview"
-        aria-labelledby="overview-heading"
-        className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-16 bg-gradient-to-b from-[#faf8fd] via-white to-white border-b border-purple-100/70 overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-5 border border-purple-200/60 shadow-2xs w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-[#9a3f91]" />
-                {heroBadge}
-              </div>
-
-              <h2
-                id="overview-heading"
-                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5"
-              >
-                Empower Channel Partners. Accelerate Loan Distribution.
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8 max-w-2xl">
-                {heroSubtitle}
-              </p>
-
-              {/* Bullet Features with Gradient Checkmarks */}
-              <div className="space-y-3.5 mb-8">
-                {heroHighlights.map((point, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#623f99] to-[#9a3f91] text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                    </div>
-                    <span className="text-sm sm:text-base font-semibold text-slate-800 leading-snug">
-                      {point}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-semibold text-sm sm:text-base shadow-lg shadow-purple-900/20 hover:shadow-xl hover:shadow-purple-900/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-                >
-                  <span>Schedule Network Demo</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#partner-offerings"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-700 font-semibold text-sm sm:text-base hover:bg-purple-50/50 hover:border-purple-200 hover:text-[#623f99] transition-all duration-300 shadow-xs"
-                >
-                  <span>Explore Offerings</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Graphic Column: Banner from Strapi */}
-            <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-lg rounded-3xl border border-purple-200/90 bg-white p-5 sm:p-7 shadow-2xl shadow-purple-950/10 overflow-hidden group">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-50/50 via-white to-purple-50/30 flex items-center justify-center border border-slate-100 shadow-inner">
-                  <Image
-                    src={heroBannerImg}
-                    alt="Loan Distribution Platform"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                    className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-                    priority
-                    unoptimized
-                  />
-                </div>
-
-                {/* Micro Metrics Strip */}
-                <div className="mt-5 grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 text-center">
-                  <div className="bg-purple-50/70 p-2.5 rounded-xl border border-purple-100/60">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase block">
-                      Lender Network
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-[#623f99]">
-                      50+ Lenders
-                    </span>
-                  </div>
-                  <div className="bg-purple-50/70 p-2.5 rounded-xl border border-purple-100/60">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase block">
-                      Decision TAT
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-emerald-700">
-                      &lt; 3 Mins
-                    </span>
-                  </div>
-                  <div className="bg-purple-50/70 p-2.5 rounded-xl border border-purple-100/60">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase block">
-                      MIS Tracking
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-[#0a1f44]">
-                      100% Real-Time
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────────────────────────────────────────────────────────────
           SECTION 2: STRATEGIC OFFERINGS & MULTI-PRODUCT ARCHITECTURE
           Directly driven by Strapi Section 0: OUR OFFERINGS THROUGH OUR STRATEGIC PARTNERS
@@ -894,9 +649,11 @@ export default function DistributionView({ solution }: DistributionViewProps) {
             >
               {workflowTitle}
             </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
-              {workflowSubtitle}
-            </p>
+            {workflowSubtitle && (
+              <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
+                {workflowSubtitle}
+              </p>
+            )}
           </div>
 
           {/* 6 Alternating Showcase Phases (LOS Connected Layer Style) */}
@@ -917,7 +674,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-[#623f99] border border-purple-200/70 tracking-widest uppercase">
+                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] border border-purple-200/60 tracking-widest uppercase">
                         PHASE {step.idx}
                       </span>
                       <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -929,13 +686,17 @@ export default function DistributionView({ solution }: DistributionViewProps) {
                       {step.title}
                     </h3>
 
-                    <p className="text-base sm:text-lg font-medium text-[#623f99] leading-relaxed">
-                      {step.subtitle}
-                    </p>
+                    {step.subtitle && (
+                      <p className="text-base sm:text-lg font-medium text-[#623f99] leading-relaxed">
+                        {step.subtitle}
+                      </p>
+                    )}
 
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                      {step.desc}
-                    </p>
+                    {step.desc && (
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                        {step.desc}
+                      </p>
+                    )}
 
                     {/* Checkmark Highlights */}
                     <div className="space-y-3 pt-2">
@@ -995,83 +756,6 @@ export default function DistributionView({ solution }: DistributionViewProps) {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION 4: STRATEGIC BUSINESS VALUE (3 PILLARS CO-LENDING STYLE)
-      ────────────────────────────────────────────────────────────────────────── */}
-      <section
-        id="business-benefits"
-        aria-labelledby="benefits-heading"
-        className="py-24 px-6 sm:px-8 lg:px-16 bg-white border-b border-purple-100/70"
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
-              <Zap className="w-3.5 h-3.5 text-[#9a3f91]" />
-              MEASURABLE ROI & VALUE
-            </span>
-            <h2
-              id="benefits-heading"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug"
-            >
-              Proven Growth for Enterprise Distribution Networks
-            </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Empower sourcing channels, optimize loan conversion, eliminate settlement disputes, and remain 100% compliant with RBI digital lending guidelines.
-            </p>
-          </div>
-
-          {/* 3 Pillars Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {strategicBenefits.map((item, idx) => {
-              const IconComp = item.icon;
-
-              return (
-                <div
-                  key={idx}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-purple-950/10 hover:border-purple-300"
-                >
-                  <div className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-purple-50 text-[#623f99] border border-purple-200/60 flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300 shadow-2xs">
-                        <IconComp className="w-7 h-7" />
-                      </div>
-                      <span className="font-mono text-[10px] font-bold text-[#9a3f91] bg-purple-50 border border-purple-100/80 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                        {item.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2.5 group-hover:text-[#623f99] transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-sm text-slate-600 leading-relaxed font-normal mb-6">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 uppercase block">
-                        {item.metricLabel}
-                      </span>
-                      <span className="text-base font-extrabold text-[#623f99]">
-                        {item.metric}
-                      </span>
-                    </div>
-                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
-                      {item.footerHighlight}
-                    </span>
                   </div>
                 </div>
               );
@@ -1164,211 +848,19 @@ export default function DistributionView({ solution }: DistributionViewProps) {
       </section>
 
       {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION 6: DISTRIBUTION WORKFLOW PIPELINE (INTERACTIVE STEPPER)
-      ────────────────────────────────────────────────────────────────────────── */}
-      <section
-        id="distribution-pipeline"
-        aria-labelledby="pipeline-heading"
-        className="py-24 px-6 sm:px-8 lg:px-16 bg-white border-b border-purple-100/70"
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
-              <Workflow className="w-3.5 h-3.5 text-[#9a3f91]" />
-              THE OPERATING PIPELINE
-            </span>
-            <h2
-              id="pipeline-heading"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug"
-            >
-              5-Stage Accelerated Distribution Flow
-            </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Click through each pipeline phase to see how applications flow from sourcing to loan disbursement and partner settlement.
-            </p>
-          </div>
-
-          {/* Stepper Buttons Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10">
-            {pipelineStages.map((stage) => {
-              const isActive = activePipelineStep === stage.step;
-
-              return (
-                <button
-                  key={stage.step}
-                  type="button"
-                  onClick={() => setActivePipelineStep(stage.step)}
-                  className={`p-4 rounded-2xl text-left border transition-all duration-300 ${
-                    isActive
-                      ? "bg-gradient-to-br from-[#623f99] to-[#9a3f91] text-white border-transparent shadow-lg shadow-purple-950/20 scale-102"
-                      : "bg-slate-50 hover:bg-purple-50/50 text-slate-700 border-slate-200/80"
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span
-                      className={`text-xs font-mono font-bold px-2 py-0.5 rounded-md ${
-                        isActive
-                          ? "bg-white/20 text-white"
-                          : "bg-purple-100 text-[#623f99]"
-                      }`}
-                    >
-                      0{stage.step}
-                    </span>
-                    <span
-                      className={`text-[10px] uppercase font-bold tracking-wider ${
-                        isActive ? "text-purple-200" : "text-slate-400"
-                      }`}
-                    >
-                      {stage.badge}
-                    </span>
-                  </div>
-                  <span className="text-xs sm:text-sm font-bold truncate block">{stage.title}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active Step Showcase Card */}
-          {(() => {
-            const currentStage =
-              pipelineStages.find((s) => s.step === activePipelineStep) ||
-              pipelineStages[0];
-
-            return (
-              <div className="rounded-3xl border border-purple-200/90 bg-gradient-to-br from-purple-50/40 via-white to-white p-8 sm:p-12 shadow-xl shadow-purple-950/5">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-8 space-y-4">
-                    <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-[#623f99] uppercase tracking-wider">
-                      Stage 0{currentStage.step} • {currentStage.badge}
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
-                      {currentStage.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-                      {currentStage.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2.5 pt-3">
-                      {currentStage.features.map((feat, fIdx) => (
-                        <span
-                          key={fIdx}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-purple-200/80 text-xs font-semibold text-slate-800 shadow-2xs"
-                        >
-                          <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[2.5]" />
-                          {feat}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                    <div className="w-full max-w-xs p-6 rounded-2xl bg-white border border-slate-200 shadow-md text-center">
-                      <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#623f99] flex items-center justify-center mx-auto mb-3">
-                        <Activity className="w-6 h-6" />
-                      </div>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 uppercase block mb-1">
-                        SLA Target
-                      </span>
-                      <span className="text-xl font-extrabold text-[#623f99] block mb-2">
-                        &lt; 3 Minutes
-                      </span>
-                      <p className="text-xs text-slate-500 leading-snug">
-                        Automated decisioning & webhook trigger to partner MIS
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-        </div>
-      </section>
-
-      {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION 7: DISTRIBUTION TECHNOLOGY BENCHMARK MATRIX
-      ────────────────────────────────────────────────────────────────────────── */}
-      <section
-        id="technology-benchmark"
-        aria-labelledby="benchmark-heading"
-        className="py-24 px-6 sm:px-8 lg:px-16 bg-[#faf8fd]/50 border-b border-purple-100/70"
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
-              <Scale className="w-3.5 h-3.5 text-[#9a3f91]" />
-              PLATFORM BENCHMARK
-            </span>
-            <h2
-              id="benchmark-heading"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug"
-            >
-              Why Digital Lenders Choose iFLOW Distribution
-            </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Compare our automated, API-driven distribution infrastructure against offline brokerage networks and generic aggregators.
-            </p>
-          </div>
-
-          {/* Benchmark Table */}
-          <div className="rounded-3xl border border-slate-200/90 bg-white shadow-xl shadow-purple-950/5 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-slate-200/80 bg-slate-50/80">
-                    <th className="py-5 px-6 sm:px-8 text-xs font-bold font-mono text-slate-500 uppercase tracking-wider">
-                      Capability / Dimension
-                    </th>
-                    <th className="py-5 px-6 sm:px-8 text-xs font-bold font-mono text-[#623f99] uppercase tracking-wider bg-purple-50/70 border-x border-purple-100">
-                      iFLOW Distribution Platform
-                    </th>
-                    <th className="py-5 px-6 sm:px-8 text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">
-                      Traditional Offline DSAs
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
-                  {comparisonData.map((row, rIdx) => (
-                    <tr
-                      key={rIdx}
-                      className="hover:bg-purple-50/30 transition-colors"
-                    >
-                      <td className="py-5 px-6 sm:px-8 font-semibold text-slate-900">
-                        {row.feature}
-                        <span className="block text-[11px] font-normal text-slate-500 mt-1">
-                          {row.advantage}
-                        </span>
-                      </td>
-                      <td className="py-5 px-6 sm:px-8 font-bold text-[#623f99] bg-purple-50/30 border-x border-purple-100/60">
-                        <div className="flex items-center gap-2">
-                          <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 stroke-[2.5]" />
-                          <span>{row.modern}</span>
-                        </div>
-                      </td>
-                      <td className="py-5 px-6 sm:px-8 text-slate-500 font-medium">
-                        <div className="flex items-center gap-2">
-                          <Minus className="w-4 h-4 text-rose-500 flex-shrink-0" />
-                          <span>{row.legacy}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ──────────────────────────────────────────────────────────────────────────
           SECTION 8: ADDITIONAL DYNAMIC STRAPI SECTIONS
           Renders any extra dynamic sections authored in Strapi
       ────────────────────────────────────────────────────────────────────────── */}
       {additionalSections.length > 0 && (
         <section id="additional-sections" className="space-y-0">
           {additionalSections.map((sec, idx) => (
-            <SectionRenderer key={sec.id || idx} section={sec} />
+            <SectionRenderer
+              key={sec.id || idx}
+              section={sec}
+              solution={solution}
+              solutionSlug={solution?.slug || "distribution"}
+              index={idx}
+            />
           ))}
         </section>
       )}
@@ -1448,8 +940,15 @@ export default function DistributionView({ solution }: DistributionViewProps) {
         aria-labelledby="cta-heading"
         className="relative py-24 px-6 sm:px-8 lg:px-16 bg-gradient-to-br from-[#3B1259] via-[#501c78] to-[#2d0b47] text-white overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Ambient Glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#7c3aed]/20 blur-[130px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 top-10 w-96 h-96 rounded-full bg-[#e51ede]/15 blur-[140px]"
+        />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 text-purple-200 text-xs font-bold tracking-widest uppercase mb-6 border border-white/15">
@@ -1474,7 +973,7 @@ export default function DistributionView({ solution }: DistributionViewProps) {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

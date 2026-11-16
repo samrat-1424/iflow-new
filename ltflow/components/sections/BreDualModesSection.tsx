@@ -55,24 +55,20 @@ export default function BreDualModesSection() {
 
       <div className="relative max-w-7xl mx-auto z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/25 text-purple-200 text-xs font-mono font-bold tracking-widest uppercase mb-4 shadow-2xs">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/25 text-purple-200 text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#ec4899]" />
             ONE ENGINE · TWO MODES
           </span>
 
           <h2
             id="dual-modes-heading"
-            className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-white tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug"
           >
-            Automate Routine Decisions. Give{" "}
-            <span className="bg-gradient-to-r from-purple-200 via-pink-200 to-white bg-clip-text text-transparent">
-              Underwriters Visibility
-            </span>{" "}
-            Into the Rest.
+            Automate Routine Decisions. Give Underwriters Visibility Into the Rest.
           </h2>
 
-          <p className="mt-4 text-purple-200/80 text-base sm:text-lg leading-relaxed font-normal max-w-2xl mx-auto">
+          <p className="mt-2.5 text-purple-200/80 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
             A unified decisioning framework for straight-through processing and explainable individual case review.
           </p>
         </div>

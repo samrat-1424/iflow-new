@@ -64,7 +64,7 @@ export default function CustomerFocusedSection() {
               <Link
                 key={item.id}
                 href={`/resources/${item.slug}`}
-                className="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-shadow"
+                className="group flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300 hover:-translate-y-1.5 transition-all duration-300"
               >
                 {item.banner && (
                   <div className="w-full h-56 relative">
@@ -78,7 +78,7 @@ export default function CustomerFocusedSection() {
                 )}
 
                 <div className="p-6 flex flex-col">
-                  <h3 className="text-lg font-semibold text-gray-900 text-center line-clamp-2 hover:text-[#9a3f91] transition-colors">
+                  <h3 className="text-lg font-semibold text-gray-900 text-center line-clamp-2 group-hover:text-[#623f99] transition-colors">
                     {item.title}
                   </h3>
                 </div>

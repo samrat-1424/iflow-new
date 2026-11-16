@@ -114,21 +114,21 @@ export default function LosComparison() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[680px]">
               <thead>
-                <tr className="border-b border-purple-100 bg-slate-900 text-white">
-                  <th className="py-5 px-6 sm:px-8 font-semibold text-xs sm:text-sm uppercase tracking-wider text-slate-300 w-1/2">
+                <tr className="border-b border-purple-100 bg-[#faf7fd] text-slate-900">
+                  <th className="py-5 px-6 sm:px-8 font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-700 w-1/2">
                     Key Origination Criteria
                   </th>
-                  <th className="py-5 px-6 sm:px-8 text-center w-1/4 bg-gradient-to-br from-[#623f99] to-[#9a3f91] text-white">
-                    <div className="inline-flex flex-col items-center gap-1">
-                      <span className="font-bold text-sm sm:text-base tracking-tight">
+                  <th className="py-5 px-6 sm:px-8 text-center w-1/4 bg-gradient-to-br from-purple-100/80 via-purple-50/80 to-fuchsia-50/70 border-x border-purple-200/70 text-[#623f99]">
+                    <div className="inline-flex flex-col items-center gap-1.5">
+                      <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#623f99]">
                         iFLOW Cloud LOS
                       </span>
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/20 text-[10px] font-mono tracking-wider font-semibold uppercase">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white text-[10px] font-mono tracking-wider font-semibold uppercase shadow-2xs">
                         Recommended
                       </span>
                     </div>
                   </th>
-                  <th className="py-5 px-6 sm:px-8 text-center w-1/4 font-semibold text-xs sm:text-sm uppercase tracking-wider text-slate-400">
+                  <th className="py-5 px-6 sm:px-8 text-center w-1/4 font-semibold text-xs sm:text-sm uppercase tracking-wider text-slate-500">
                     Legacy / Traditional LOS
                   </th>
                 </tr>

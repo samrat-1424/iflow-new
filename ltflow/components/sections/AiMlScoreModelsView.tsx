@@ -37,7 +37,6 @@ import {
   Target,
   FileText,
   Network,
-  RotateCw,
   FolderKanban,
   Users,
 } from "lucide-react";
@@ -162,17 +161,14 @@ const POLICY_STEP_FALLBACKS = [
   {
     tag: "POLICY DEFINITION",
     icon: Sliders,
-    footerNote: "No-Code Rule Authoring",
   },
   {
     tag: "DATA & MODEL EVALUATION",
     icon: Cpu,
-    footerNote: "Real-Time Rule Execution",
   },
   {
     tag: "DECISION PRODUCTION",
     icon: CheckCircle2,
-    footerNote: "Controlled Review Routing",
   },
 ];
 
@@ -784,7 +780,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                         {/* Left: Model Information & Features */}
                         <div className="lg:col-span-7 space-y-5">
                           <div className="flex flex-wrap items-center gap-2.5">
-                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-purple-100 text-[#623f99] text-xs font-mono font-bold uppercase tracking-wider border border-purple-200/60 shadow-2xs">
+                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-mono font-bold uppercase tracking-wider border border-purple-200/60 border border-purple-200/60 shadow-2xs">
                               {activeModelMeta.tag}
                             </span>
                             <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200/80 shadow-2xs">
@@ -889,7 +885,6 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                   {/* Secondary 4-Card Overview Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {dynamicModels.map((model: any, idx: number) => {
-                      const isCurrent = selectedModelIdx === idx;
                       const bullets = parseBulletPoints(model.features);
                       const meta = getModelMetadata(idx, model.name);
                       const modelImg = model.diagram?.url ? toUrl(model.diagram.url) : null;
@@ -897,12 +892,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                       return (
                         <div
                           key={model.id || idx}
-                          onClick={() => setSelectedModelIdx(idx)}
-                          className={`group rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${
-                            isCurrent
-                              ? "border-[#623f99] bg-purple-50/40 shadow-lg shadow-purple-950/10 -translate-y-1 ring-2 ring-[#623f99]/20"
-                              : "border-slate-200 bg-white hover:border-purple-300 hover:shadow-md hover:-translate-y-0.5"
-                          }`}
+                          className="rounded-2xl border border-slate-200 bg-white flex flex-col justify-between overflow-hidden"
                         >
                           <div>
                             {/* Card Top Image Frame */}
@@ -913,10 +903,9 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                                   alt={sanitize(model.name)}
                                   fill
                                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                  className="object-cover"
                                   unoptimized
                                 />
-
                               </div>
                             )}
 
@@ -924,7 +913,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                               {!modelImg && (
                                 <div className="flex items-center justify-between mb-4">
                                   <span className="font-mono text-[10px] font-bold text-[#9a3f91] uppercase">
-                                    MODEL #{idx + 1}
+                                    MODEL
                                   </span>
                                   <span className="font-mono text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
                                     {meta.latency}
@@ -932,7 +921,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                                 </div>
                               )}
 
-                              <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug group-hover:text-[#623f99] transition-colors">
+                              <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
                                 {sanitize(model.name)}
                               </h3>
 
@@ -940,11 +929,6 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                                 {bullets[0] || "Advanced artificial intelligence credit evaluation model."}
                               </p>
                             </div>
-                          </div>
-
-                          <div className="px-5 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                            <span>{isCurrent ? "Active Selection" : "View Architecture"}</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
                       );
@@ -1051,12 +1035,6 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                           )}
                         </div>
 
-                        {card.button_text && (
-                          <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                            <span>{card.button_text}</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        )}
                       </div>
                     );
                   })}
@@ -1203,13 +1181,10 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                       >
                         <div className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div>
-                          <div className="flex items-center justify-between mb-6">
+                          <div className="mb-6">
                             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/80 text-[#623f99] flex items-center justify-center border border-purple-200/60 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300 shadow-2xs">
                               <StepIcon className="w-5 h-5" />
                             </div>
-                            <span className="font-mono text-[11px] font-bold text-[#9a3f91] px-2.5 py-1 rounded-full bg-purple-50 border border-purple-100">
-                              STEP 0{i + 1}
-                            </span>
                           </div>
                           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
                             {fallback.tag}
@@ -1220,10 +1195,6 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                           <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
                             {itemDesc}
                           </p>
-                        </div>
-                        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#623f99]">
-                          <span>{fallback.footerNote}</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
                     );
@@ -1448,7 +1419,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
 
                 <div className="flex-1 space-y-3.5">
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-[#623f99] text-xs font-mono font-bold uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-mono font-bold uppercase tracking-wider border border-purple-200/60">
                       {pipelineSteps[activeStepIdx].tag}
                     </span>
                     <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
@@ -1487,7 +1458,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
                       className={`inline-flex items-center gap-1 font-semibold px-4 py-2 rounded-xl transition-all ${
                         activeStepIdx === pipelineSteps.length - 1
                           ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
-                          : "bg-[#623f99] text-white hover:bg-[#4d3179] shadow-sm cursor-pointer"
+                          : "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white hover:opacity-95 shadow-md shadow-purple-900/20 cursor-pointer"
                       }`}
                     >
                       <span>Next Step &rarr;</span>
@@ -1575,76 +1546,94 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
       </section>
 
       {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION: RESPONSIBLE AI, GOVERNANCE & SECURITY
+          SECTION: SECURITY & GOVERNANCE (STRUCTURED CONTROL LAYER)
       ────────────────────────────────────────────────────────────────────────── */}
-      <section 
-        id="governance"
-        aria-labelledby="governance-heading"
-        className="relative py-24 px-6 sm:px-8 lg:px-16 bg-white border-b border-purple-100/70 overflow-hidden"
+      <section
+        id="security-governance"
+        aria-labelledby="security-governance-heading"
+        className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-16 bg-white border-b border-purple-100/70 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#9a3f91]" />
-              ETHICAL AI &amp; GOVERNANCE
-            </span>
-            <h2 id="governance-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-              Bank-Grade Compliance, Fair Lending &amp; Explainable AI
-            </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
-              Engineered from the ground up for strict regulatory auditability, demographic fairness, and enterprise security.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Control Layer Orbital Diagram */}
+            <div className="lg:col-span-6 flex items-center justify-center">
+              <div className="relative w-full max-w-[360px] sm:max-w-[440px] aspect-square flex items-center justify-center select-none">
+                {/* Concentric Rings */}
+                <div
+                  className="absolute inset-[10%] rounded-full border border-purple-200/70 pointer-events-none"
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute inset-[24%] rounded-full border border-purple-200/70 pointer-events-none"
+                  aria-hidden="true"
+                />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:border-purple-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-[#623f99] flex items-center justify-center mb-5">
-                  <Scale className="w-6 h-6" />
+                {/* Orbital Chips */}
+                {[
+                  { label: "RBAC", posClass: "top-[5%] left-1/2 -translate-x-1/2" },
+                  { label: "Maker-checker", posClass: "top-[24%] right-[1%] sm:right-[-1%]" },
+                  { label: "Audit trail", posClass: "bottom-[21%] right-[2%] sm:right-[1%]" },
+                  { label: "API controls", posClass: "bottom-[4%] left-1/2 -translate-x-1/2" },
+                  { label: "Exceptions", posClass: "bottom-[22%] left-[1%] sm:left-[0%]" },
+                  { label: "Lifecycle", posClass: "top-[24%] left-[2%] sm:left-[1%]" },
+                ].map((node) => (
+                  <div key={node.label} className={`absolute ${node.posClass} z-30`}>
+                    <div className="bg-white rounded-lg border border-slate-200/80 shadow-[0_8px_22px_rgba(15,23,42,0.07)] px-3.5 py-2 text-[11px] sm:text-xs font-semibold text-slate-800 whitespace-nowrap">
+                      {node.label}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Central Dark Purple Control Layer Core */}
+                <div className="relative z-20 w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-[#200d38] shadow-[0_18px_40px_rgba(32,13,56,0.28)] flex flex-col items-center justify-center text-center px-3">
+                  <Lock className="w-5 h-5 text-purple-300/90 mb-2" strokeWidth={1.75} />
+                  <span className="text-white font-bold text-xs tracking-[0.16em] uppercase leading-snug">
+                    CONTROL
+                    <br />
+                    LAYER
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Explainable AI (XAI)
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Every decision delivers granular SHAP (SHapley Additive exPlanations) values identifying the exact features influencing risk ratings, empowering underwriters and fulfilling adverse notice mandates.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-mono font-bold text-[#623f99]">
-                SHAP &amp; LIME INTEGRATION
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:border-purple-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-[#9a3f91] flex items-center justify-center mb-5">
-                  <Lock className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Zero-Trust Data Protection
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Hardware Security Module (HSM) encryption, AES-256 for data at rest, and TLS 1.3 in transit. Borrower telemetry is never co-mingled across multi-tenant partner instances.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-mono font-bold text-[#9a3f91]">
-                ISO 27001 &amp; SOC-2 TYPE II
-              </div>
-            </div>
+            {/* Right Column: Copy & 2-Column Controls Checklist */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <span className="text-xs font-bold tracking-[0.14em] uppercase text-[#9a3f91] mb-3 block">
+                SECURITY &amp; GOVERNANCE
+              </span>
 
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:border-purple-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-[#7c3aed] flex items-center justify-center mb-5">
-                  <RotateCw className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Continuous Bias Monitoring
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Automated auditing routines test for disparate impact and demographic parity, ensuring models assess purely objective creditworthiness free of bias.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-mono font-bold text-[#7c3aed]">
-                FAIR LENDING ALIGNMENT
+              <h2
+                id="security-governance-heading"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4"
+              >
+                Structured Partner Governance and Operational Control
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-xl">
+                Put consistent controls around partner access, evaluation, assignment and ongoing lifecycle management—without making unverified compliance claims.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
+                {[
+                  "Role-Based Access Control",
+                  "Maker-checker evaluation framework",
+                  "Multiple users per partner entity",
+                  "Partner-specific API configurations",
+                  "Centralised partner master",
+                  "Activity and operational visibility",
+                  "Audit trail-oriented controls",
+                  "Exception handling and reassignment",
+                ].map((control) => (
+                  <div
+                    key={control}
+                    className="flex items-center gap-3 px-4 py-3 rounded-sm border border-slate-200/80 bg-white"
+                  >
+                    <Check className="w-3.5 h-3.5 text-[#9a3f91] flex-shrink-0 stroke-[2.2]" />
+                    <span className="text-xs sm:text-[13px] font-medium text-slate-700 leading-snug">
+                      {control}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1754,7 +1743,7 @@ export default function AiMlScoreModelsView({ solution }: AiMlScoreModelsViewPro
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/book-a-demo"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
             >
               <span>Schedule a Platform Demo</span>
               <ArrowRight className="w-4 h-4" />

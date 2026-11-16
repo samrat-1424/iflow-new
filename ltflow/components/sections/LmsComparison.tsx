@@ -168,7 +168,7 @@ export default function LmsComparison() {
             </div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#623f99] hover:bg-[#523380] text-white text-xs font-bold transition-all shadow-sm hover:shadow-md cursor-pointer flex-shrink-0"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] hover:opacity-95 text-white text-xs font-bold transition-all shadow-sm hover:shadow-md cursor-pointer flex-shrink-0"
             >
               <span>Schedule Architecture Review</span>
             </a>

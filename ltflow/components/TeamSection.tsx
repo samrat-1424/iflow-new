@@ -35,7 +35,7 @@ const team: TeamMember[] = [
     role: "AVP, Project & Technology Delivery",
     image: "/team/deeepak.jpeg",
     linkedin: "https://www.linkedin.com/in/deepak-prakash-38371a110/",
-    twitter: "https://x.com/deepakbihari2",
+    twitter: "",
     bio: "10+ years of technical project management expertise, specializing in Agile methodologies, scrum delivery, and orchestrating cross-functional engineering teams.",
     facePosition: "center 0%",
   },
@@ -44,7 +44,7 @@ const team: TeamMember[] = [
     role: "AM, Sales & Marketing",
     image: "/team/amita.jpeg",
     linkedin: "https://www.linkedin.com/in/amitachorghe/",
-    twitter: "https://x.com/amitachorghe",
+    twitter: "",
     bio: "Dynamic business development and software sales specialist with a proven track record in client relations and driving technology adoption in the BFSI sector.",
     facePosition: "center 5%",
   },
@@ -160,7 +160,7 @@ const TeamSection: React.FC = () => {
       `}</style>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4">
-        <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#7c3aed] uppercase mb-4 text-center">
+        <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#9a3f91] uppercase mb-4 text-center">
           CORE TEAM
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-tight text-center mb-10 sm:mb-14">

@@ -36,7 +36,10 @@ import {
   ArrowRight,
   ArrowDown,
   Plus,
-  Minus
+  Minus,
+  Layers,
+  CalendarCheck,
+  Zap,
 } from "lucide-react";
 
 interface GenericSectionProps {
@@ -272,7 +275,7 @@ export default function GenericSection({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           {(data.badge || solutionSlug === "collection") && (
             <div className="text-center mb-4">
-              <span className="inline-block px-4 py-1.5 bg-purple-50 text-purple-600 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-100/30">
+              <span className="inline-block px-4 py-1.5 bg-purple-100/80 text-[#9a3f91] rounded-full text-xs font-bold uppercase tracking-widest border border-purple-200/60 shadow-2xs">
                 {data.badge}
               </span>
             </div>
@@ -642,50 +645,109 @@ export default function GenericSection({
   if (layoutType === "bicri") {
     const mainImage = getImageUrl(data.image) || getImageUrl(data.cards?.[0]?.image);
 
+    const getCardIcon = (title: string, index: number) => {
+      const t = String(title || "").toLowerCase();
+      if (t.includes("integration") || t.includes("api") || t.includes("plug")) return Layers;
+      if (t.includes("repayment") || t.includes("tenure") || t.includes("billing")) return CalendarCheck;
+      if (t.includes("experience") || t.includes("user") || t.includes("checkout")) return Sparkles;
+      if (t.includes("decision") || t.includes("underwriting") || t.includes("instant")) return Zap;
+      if (t.includes("compliant") || t.includes("secure") || t.includes("rbi") || t.includes("encryption")) return ShieldCheck;
+      if (t.includes("omnichannel") || t.includes("channel") || t.includes("mobile") || t.includes("app")) return Smartphone;
+
+      const fallbacks = [Layers, CalendarCheck, Sparkles, Zap, ShieldCheck, Smartphone];
+      return fallbacks[index % fallbacks.length];
+    };
+
+    const badgeText = data.badge || "CORE PLATFORM CAPABILITIES";
+    const sectionTitle = data.title || "BNPL Product Suite";
+    const isBnpl = solutionSlug === "bnpl-product-suite" || sectionTitle.toLowerCase().includes("bnpl");
+
     return (
-      <section className={`py-20 pb-40 ${bgColor}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 text-center mb-16">
-            {renderMarkdown(data.title, "text-[#9a3f91]")}
-          </h2>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative py-20 lg:py-24 bg-gradient-to-b from-white via-purple-50/25 to-white border-b border-purple-100/70 overflow-hidden">
+        {/* Soft background ambient glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/3 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-200/20 blur-[130px]"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-14">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
+              <Target className="w-3.5 h-3.5 text-[#9a3f91]" />
+              {badgeText}
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
+              {isBnpl ? "Next-Gen Capabilities for Modern Checkout Credit" : renderMarkdown(sectionTitle, "text-[#9a3f91]")}
+            </h2>
+            <p className="mt-3 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal max-w-2xl mx-auto">
+              {data.description ||
+                "Launch merchant-led or issuer-led BNPL products with sub-second underwriting, flexible tenures, and end-to-end operational control."}
+            </p>
+          </div>
+
+          {/* 2-Column Responsive Layout: Left Phone Mockup, Right 6 Capability Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+            {/* Left Column: Interactive Phone Mockup Card */}
             {mainImage && (
-              <div className="relative w-full h-[450px]">
-                {mainImage.match(/\.(mp4|webm|ogg)$/i) ? (
-                  <video
-                    src={toFullUrl(mainImage)}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <Image src={toFullUrl(mainImage)} alt="BICRI" fill className="object-contain" />
-                )}
+              <div className="lg:col-span-5 flex flex-col">
+                <div className="relative w-full h-full rounded-3xl border border-purple-200/80 bg-gradient-to-b from-purple-50/50 via-white to-purple-50/30 p-6 sm:p-7 shadow-xl shadow-purple-950/5 flex flex-col justify-between overflow-hidden group">
+                  {/* Phone Image Container (Properly scaled, never cut off) */}
+                  <div className="relative w-full flex-1 min-h-[380px] sm:min-h-[440px] flex items-center justify-center my-auto py-2">
+                    <div className="relative w-full max-w-[280px] h-[380px] sm:h-[430px]">
+                      <Image
+                        src={toFullUrl(mainImage)}
+                        alt={sectionTitle}
+                        fill
+                        className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bottom Feature Badges */}
+                  <div className="w-full pt-3 mt-2 border-t border-purple-100/80 grid grid-cols-2 gap-2.5">
+                    <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200/70 shadow-2xs text-center">
+                      <div className="text-xs font-bold text-slate-900">Zero Friction</div>
+                      <div className="text-[10.5px] text-slate-500 font-medium">1-Click Checkout</div>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200/70 shadow-2xs text-center">
+                      <div className="text-xs font-bold text-[#623f99]">100% Compliant</div>
+                      <div className="text-[10.5px] text-slate-500 font-medium">RBI Digital Lending</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {data.cards?.map((card: any) => {
-                const iconUrl = getImageUrl(card.icon);
+
+            {/* Right Column: 6 Capability Cards (2 Columns x 3 Rows) */}
+            <div className={`${mainImage ? "lg:col-span-7" : "lg:col-span-12"} grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5`}>
+              {data.cards?.map((card: any, idx: number) => {
+                const IconComponent = getCardIcon(card.title, idx);
                 return (
                   <div
-                    key={card.id}
-                    className="rounded-xl p-8 shadow-md bg-[#a15cbd] hover:shadow-xl transition flex flex-col items-center"
+                    key={card.id || idx}
+                    className="group relative rounded-2xl p-5 sm:p-5.5 bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                   >
-                    {iconUrl && (
-                      <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white mb-6 shadow">
-                        <Image
-                          src={toFullUrl(iconUrl)}
-                          alt={card.title}
-                          width={40}
-                          height={40}
-                          className=""
-                        />
+                    <div>
+                      {/* Icon */}
+                      <div className="mb-3.5">
+                        <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#623f99] flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300 shadow-2xs">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
                       </div>
-                    )}
-                    <h3 className="text-xl font-semibold mb-3 text-center text-white">{card.title}</h3>
-                    <p className="text-white text-center">{card.description}</p>
+
+                      {/* Title */}
+                      <h3 className="text-base sm:text-[17px] font-bold text-slate-900 group-hover:text-[#623f99] transition-colors leading-snug mb-1.5">
+                        {card.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                        {String(card.description || "").trim()}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
@@ -739,7 +801,7 @@ export default function GenericSection({
                 return (
                   <div
                     key={card.id}
-                    className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
+                    className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start"
                   >
                     {iconUrl && (
                       <div className="w-12 h-12 rounded-xl bg-[#f8f5ff] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 border border-[#eaddff]">
@@ -752,7 +814,7 @@ export default function GenericSection({
                         />
                       </div>
                     )}
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-[#9a3f91] transition-colors">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-[#623f99] transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-sm text-gray-500 leading-relaxed">
@@ -778,7 +840,7 @@ export default function GenericSection({
         <div className="max-w-7xl mx-auto px-6 lg:px-16">
           {data.badge && (
             <div className="text-center mb-4">
-              <span className="inline-block px-4 py-1.5 bg-purple-50 text-purple-600 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-100/30">
+              <span className="inline-block px-4 py-1.5 bg-purple-100/80 text-[#9a3f91] rounded-full text-xs font-bold uppercase tracking-widest border border-purple-200/60 shadow-2xs">
                 {data.badge}
               </span>
             </div>
@@ -1093,7 +1155,7 @@ export default function GenericSection({
                   <div key={item.id || idx} className="flex flex-col items-center w-full">
                     {/* Node Card */}
                     <div
-                      className="w-full py-4 px-6 rounded-2xl flex items-center justify-between border transition-all duration-300 bg-white border-purple-100 text-slate-900 shadow-sm hover:border-[#9a3f91] hover:shadow-md"
+                      className="w-full py-4 px-6 rounded-2xl flex items-center justify-between border transition-all duration-300 bg-white border-purple-100 text-slate-900 shadow-sm hover:border-purple-300 hover:shadow-md"
                     >
                       <div className="flex items-center gap-4">
                         {iconUrl ? (
@@ -1212,7 +1274,7 @@ export default function GenericSection({
                               ? "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white ring-4 ring-purple-200 shadow-lg shadow-purple-500/30 scale-110"
                               : isPassed
                               ? "bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white shadow-md hover:scale-105"
-                              : "bg-white border-2 border-purple-200 text-[#623f99] group-hover:border-[#9a3f91] group-hover:scale-105 shadow-sm"
+                              : "bg-white border-2 border-purple-200 text-[#623f99] group-hover:border-purple-300 group-hover:scale-105 shadow-sm"
                           }`}
                         >
                           {stepIcon ? (
@@ -1229,7 +1291,7 @@ export default function GenericSection({
                               className={`w-4 h-4 sm:w-5 sm:h-5 ${
                                 isActive || isPassed
                                   ? "text-white"
-                                  : "text-[#623f99] group-hover:text-[#9a3f91]"
+                                  : "text-[#623f99] group-hover:text-[#623f99]"
                               }`}
                             />
                           )}
@@ -1243,7 +1305,7 @@ export default function GenericSection({
                                 ? "font-bold text-[#9a3f91] scale-105"
                                 : isPassed
                                 ? "font-semibold text-slate-900"
-                                : "font-medium text-gray-500 group-hover:text-[#9a3f91]"
+                                : "font-medium text-gray-500 group-hover:text-[#623f99]"
                             }`}
                           >
                             {step.title}
@@ -1367,7 +1429,7 @@ export default function GenericSection({
           {/* Section Header */}
           <div className="max-w-4xl mb-14 md:mb-16">
             {badge && (
-              <p className="text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#7c3aed] mb-4">
+              <p className="text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#9a3f91] mb-4">
                 {badge}
               </p>
             )}

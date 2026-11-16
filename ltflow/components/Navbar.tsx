@@ -368,21 +368,21 @@ const TopBar = ({
 
                 {/* Dropdown Mega-Menu with continuous hover bridge */}
                 <div
-                  className={`absolute top-full left-[-20px] sm:left-[-60px] md:left-[-100px] lg:left-[-160px] xl:left-[-200px] pt-2 z-50 transition-all duration-200 ${isSolutionsHovered
+                  className={`absolute top-full left-[-20px] sm:left-[-60px] md:left-[-120px] lg:left-[-180px] xl:left-[-220px] pt-2 z-50 transition-all duration-200 ${isSolutionsHovered
                     ? "opacity-100 visible pointer-events-auto"
                     : "opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto"
                     }`}
                   onMouseEnter={handleSolutionsMouseEnter}
                   onMouseLeave={handleSolutionsMouseLeave}
                 >
-                  <div className="w-[1000px] max-w-[calc(100vw-2rem)] rounded-3xl border border-slate-200/90 bg-white p-5 shadow-2xl shadow-purple-950/15">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="w-[1120px] max-w-[calc(100vw-2rem)] rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-2xl shadow-purple-950/15">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                       {NAV_CATEGORIES.map((category) => (
                         <div key={category.title} className="flex flex-col">
-                          <span className="font-mono text-[10px] font-extrabold uppercase tracking-widest text-[#9a3f91] pb-1.5 mb-1.5 border-b border-purple-100/80 block">
+                          <span className="font-mono text-[11px] font-extrabold uppercase tracking-widest text-[#9a3f91] pb-2 mb-2 border-b border-purple-100/90 block">
                             {category.title}
                           </span>
-                          <div className="space-y-1">
+                          <div className="space-y-1.5">
                             {category.items.map((item) => {
                               const IconComponent = item.icon;
                               return (
@@ -390,16 +390,16 @@ const TopBar = ({
                                   key={item.slug}
                                   href={`/solutions/${item.slug}`}
                                   onClick={() => setIsSolutionsHovered(false)}
-                                  className="group/item flex items-start gap-2 p-1.5 rounded-xl hover:bg-purple-50/70 transition-all text-left"
+                                  className="group/item flex items-start gap-3 p-2 rounded-xl hover:bg-purple-50/70 transition-all text-left"
                                 >
-                                  <div className="w-6 h-6 rounded-md bg-purple-50 text-[#7c3aed] group-hover/item:bg-[#7c3aed] group-hover/item:text-white flex items-center justify-center shrink-0 transition-colors mt-0.5">
-                                    <IconComponent className="w-3.5 h-3.5" />
+                                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#623f99] group-hover/item:bg-gradient-to-r group-hover/item:from-[#623f99] group-hover/item:to-[#9a3f91] group-hover/item:text-white flex items-center justify-center shrink-0 transition-all mt-0.5 shadow-2xs">
+                                    <IconComponent className="w-4 h-4" />
                                   </div>
                                   <div className="min-w-0 flex-1">
-                                    <div className="font-bold text-[12.5px] text-slate-900 group-hover/item:text-[#623f99] transition-colors leading-snug truncate">
+                                    <div className="font-bold text-[13.5px] sm:text-[14px] text-slate-900 group-hover/item:text-[#623f99] transition-colors leading-snug">
                                       {item.name}
                                     </div>
-                                    <p className="text-[11px] text-slate-500 leading-tight mt-0.5 line-clamp-1">
+                                    <p className="text-[12px] text-slate-500 leading-snug mt-0.5 line-clamp-2">
                                       {item.blurb}
                                     </p>
                                   </div>
@@ -415,17 +415,12 @@ const TopBar = ({
                     <Link
                       href="/solutions"
                       onClick={() => setIsSolutionsHovered(false)}
-                      className="mt-3 flex items-center justify-between rounded-xl bg-gradient-to-r from-[#3c2262] via-[#5c2b7f] to-[#8d367a] px-5 py-2.5 text-white transition-all hover:opacity-95 shadow-md group/bar"
+                      className="mt-5 flex items-center justify-between rounded-xl bg-gradient-to-r from-[#623f99] to-[#9a3f91] px-6 py-3.5 text-white transition-all hover:opacity-95 shadow-md group/bar"
                     >
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-xs sm:text-sm text-white">
-                          Explore the full iFLOW ecosystem
-                        </span>
-                        <span className="text-[11px] text-purple-200 font-medium hidden sm:inline">
-                          · 13 Enterprise Solutions
-                        </span>
-                      </div>
-                      <span className="font-bold text-xs sm:text-sm text-white flex items-center gap-1 group-hover/bar:translate-x-0.5 transition-transform">
+                      <span className="font-bold text-sm sm:text-[15px] text-white">
+                        Explore the full iFLOW ecosystem
+                      </span>
+                      <span className="font-bold text-sm text-white flex items-center gap-1.5 group-hover/bar:translate-x-0.5 transition-transform">
                         View all solutions ↗
                       </span>
                     </Link>

@@ -51,7 +51,7 @@ export default function AboutSections() {
           {/* Breadcrumb */}
          
           {/* Eyebrow */}
-          <p className="text-xs font-bold tracking-widest text-[#7c3aed] uppercase mb-4">
+          <p className="text-xs font-bold tracking-widest text-[#9a3f91] uppercase mb-4">
             About iFLOW
           </p>
 
@@ -75,7 +75,7 @@ export default function AboutSections() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left Column: Who we are text */}
           <div>
-            <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#7c3aed] uppercase mb-4">
+            <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#9a3f91] uppercase mb-4">
               WHO WE ARE
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
@@ -101,12 +101,12 @@ export default function AboutSections() {
               return (
                 <div
                   key={idx}
-                  className="h-full rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-xl hover:border-purple-200 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  className="group h-full rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-xl hover:shadow-purple-950/10 hover:border-purple-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#623f99] to-[#8a57cf] text-white shadow-md shadow-purple-200">
                     <Icon className="h-5 w-5" strokeWidth={2} />
                   </span>
-                  <h3 className="mt-4 font-bold text-base text-slate-900 tracking-tight">
+                  <h3 className="mt-4 font-bold text-base text-slate-900 tracking-tight group-hover:text-[#623f99] transition-colors">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -263,7 +263,7 @@ export default function AboutSections() {
 
         <div className="relative max-w-7xl mx-auto z-10">
           {/* Eyebrow */}
-          <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#7c3aed] uppercase mb-4">
+          <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#9a3f91] uppercase mb-4">
             OUR PURPOSE
           </p>
 
@@ -326,8 +326,8 @@ export default function AboutSections() {
         <TeamSectionComp />
       </div>
 
-      {/* ── Company Mountain Roadmap ── */}
-      <CompanyRoadmap />
+      {/* ── Company Mountain Roadmap (Temporarily hidden) ── */}
+      {/* <CompanyRoadmap /> */}
 
       {/* ── INDUSTRY PRESENCE ── */}
       <section className="relative py-20 sm:py-24 lg:py-28 px-6 md:px-10 lg:px-14 bg-gradient-to-b from-white via-[#faf7fd] to-white border-b border-purple-100/70 overflow-hidden">
@@ -339,7 +339,7 @@ export default function AboutSections() {
 
         <div className="relative max-w-7xl mx-auto z-10 text-center">
           {/* Eyebrow */}
-          <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#7c3aed] uppercase mb-4">
+          <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#9a3f91] uppercase mb-4">
             INDUSTRY PRESENCE
           </p>
 
@@ -365,7 +365,7 @@ export default function AboutSections() {
                 key={idx}
                 className="p-6 sm:p-7 flex flex-col justify-between min-h-[120px] sm:min-h-[140px] hover:bg-purple-50/50 transition-colors"
               >
-                <span className="font-mono text-[11px] sm:text-xs font-semibold text-[#7c3aed] mb-4 block">
+                <span className="font-mono text-[11px] sm:text-xs font-semibold text-[#623f99] mb-4 block">
                   {item.num}
                 </span>
                 <span className="text-sm sm:text-[15px] font-bold text-slate-800 tracking-tight leading-snug">
@@ -783,14 +783,14 @@ function CompanyRoadmap() {
           border-radius: 9999px;
         }
         .roadmap-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(90deg, #7c3aed, #ec4899);
+          background: linear-gradient(90deg, #623f99, #9a3f91);
           border-radius: 9999px;
         }
       `}</style>
 
       {/* Header Container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 text-center mb-10 sm:mb-14">
-        <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#7c3aed] uppercase mb-4 text-center">
+        <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.25em] text-[#9a3f91] uppercase mb-4 text-center">
           EXPEDITION ROADMAP
         </p>
 
@@ -1094,7 +1094,7 @@ function CompanyRoadmap() {
 
               {/* ── 10. Start Terminal (at x=40, y=490) ── */}
               <g>
-                <circle cx="40" cy="490" r="28" fill="none" stroke="#7c3aed" strokeWidth="1.5" strokeDasharray="4 4">
+                <circle cx="40" cy="490" r="28" fill="none" stroke="#623f99" strokeWidth="1.5" strokeDasharray="4 4">
                   <animateTransform attributeName="transform" type="rotate" from="0 40 490" to="360 40 490" dur="8s" repeatCount="indefinite" />
                 </circle>
                 <circle cx="40" cy="490" r="16" fill="#623f99" opacity="0.8" />

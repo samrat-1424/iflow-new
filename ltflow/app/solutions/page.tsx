@@ -90,7 +90,7 @@ export default async function SolutionsPage() {
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pt-10 pb-20">
           {/* Eyebrow */}
-          <p className="text-xs font-bold tracking-widest text-[#7c3aed] uppercase mb-4">
+          <p className="text-xs font-bold tracking-widest text-[#9a3f91] uppercase mb-4">
             iFLOW Solutions
           </p>
 
@@ -144,11 +144,6 @@ export default async function SolutionsPage() {
                               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                             </div>
                           </div>
-
-                          {/* Tag */}
-                          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a3f91] block mb-1.5">
-                            {item.tag}
-                          </span>
 
                           {/* Title */}
                           <h3 className="font-bold text-lg sm:text-xl text-slate-900 group-hover:text-[#623f99] transition-colors">

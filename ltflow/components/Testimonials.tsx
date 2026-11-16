@@ -224,9 +224,9 @@ export default function Testimonials() {
             onMouseEnter={() => setIsHeaderHovered(true)}
             onMouseLeave={() => setIsHeaderHovered(false)}
           >
-            <p className="text-xs font-mono font-semibold uppercase tracking-[0.22em] text-purple-700 mb-3">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100/80 text-[#9a3f91] text-xs font-bold tracking-widest uppercase mb-4 border border-purple-200/60 shadow-2xs">
               CLIENT TESTIMONIALS
-            </p>
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
               Success{" "}
               <span className="text-[#9a3f91]">

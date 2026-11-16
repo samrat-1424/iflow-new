@@ -640,7 +640,7 @@ export default function DigitalApplicationJourney({
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#7E22CE] hover:bg-[#6b21a8] text-white shadow-md shadow-purple-500/20 transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white hover:opacity-95 shadow-md shadow-purple-900/20 transition-all duration-200 flex items-center gap-2 cursor-pointer"
                   >
                     <span>
                       {currentStep === STEPS.length ? "Restart journey" : "Continue"}

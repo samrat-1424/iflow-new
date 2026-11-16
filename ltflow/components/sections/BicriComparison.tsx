@@ -222,7 +222,7 @@ export default function BicriComparison() {
             </div>
             <a
               href="#bicri-simulator"
-              className="font-bold text-[#7E22CE] hover:text-[#9a3f91] inline-flex items-center gap-1 transition-colors whitespace-nowrap"
+              className="font-bold text-[#623f99] hover:text-[#523380] inline-flex items-center gap-1 transition-colors whitespace-nowrap"
             >
               <span>Test BICRI Score Simulator</span>
               <span aria-hidden="true">↓</span>

@@ -60,10 +60,10 @@ export default function AboutProgressSection() {
             <div>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-[#0A2D5F] hover:text-[#9a3f91] font-semibold text-sm sm:text-base transition-colors group"
+                className="inline-flex items-center gap-2 text-[#0A2D5F] hover:text-[#623f99] font-semibold text-sm sm:text-base transition-colors group"
               >
                 <span>Get to know us</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5] text-[#0A2D5F] group-hover:text-[#9a3f91] group-hover:translate-x-1.5 transition-all duration-200" />
+                <ArrowRight className="w-4 h-4 stroke-[2.5] text-[#0A2D5F] group-hover:text-[#623f99] group-hover:translate-x-1.5 transition-all duration-200" />
               </Link>
             </div>
           </div>

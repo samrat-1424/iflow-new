@@ -145,7 +145,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
           <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left Column: Challenges */}
             <div>
-              <span className="font-mono text-xs font-bold tracking-[0.18em] text-[#7c3aed] uppercase block mb-3">
+              <span className="font-mono text-xs font-bold tracking-[0.18em] text-[#9a3f91] uppercase block mb-3">
                 THE CHALLENGE
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-8">
@@ -161,7 +161,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
                     key={idx}
                     className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all hover:border-purple-200 hover:shadow-md"
                   >
-                    <div className="w-7 h-7 rounded-full bg-purple-100 text-[#7c3aed] flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-purple-100 text-[#9a3f91] flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 stroke-[2.5]" />
                     </div>
                     <p className="text-sm sm:text-base font-medium text-slate-800 leading-snug">
@@ -174,7 +174,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
 
             {/* Right Column: Approach & Metrics */}
             <div>
-              <span className="font-mono text-xs font-bold tracking-[0.18em] text-[#7c3aed] uppercase block mb-3">
+              <span className="font-mono text-xs font-bold tracking-[0.18em] text-[#9a3f91] uppercase block mb-3">
                 THE APPROACH
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
@@ -211,7 +211,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
         {/* ── 3. Solutions for this industry ── */}
         <section className="py-20 bg-purple-50/20">
           <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14">
-            <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#7c3aed] uppercase text-center block mb-2">
+            <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#9a3f91] uppercase text-center block mb-2">
               STACK
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center mb-12 tracking-tight">
@@ -243,7 +243,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#7c3aed] group-hover:gap-2 transition-all">
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#9a3f91] group-hover:gap-2 transition-all">
                       <span>Learn more</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </div>

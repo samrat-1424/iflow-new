@@ -23,6 +23,7 @@ import FieldCommandCentreSection from "@/components/sections/FieldCommandCentreS
 import BreDualModesSection from "@/components/sections/BreDualModesSection";
 import BreRuleStudioSection from "@/components/sections/BreRuleStudioSection";
 import PlayingCardDeck from "@/components/hero/PlayingCardDeck";
+import ScrollToSectionButton from "@/components/hero/ScrollToSectionButton";
 import React from "react";
 import {
   CheckCircle2,
@@ -69,9 +70,9 @@ function getSolutionHeroConfig(slug: string, solution: Solution): SolutionHeroCo
     return {
       tag: "CO-LENDING PLATFORM",
       name: "Co-Lending",
-      titlePrefix: "India's Most Trusted",
-      titleGradient: "Co-Lending Platform",
-      titleSuffix: "for Banks & NBFCs",
+      titlePrefix: "Powering Smarter",
+      titleGradient: "Co-Lending",
+      titleSuffix: "for India's Banks & NBFCs",
       description:
         "End-to-end co-lending lifecycle management — from partner onboarding and loan origination to collections, settlement, and analytics. Built for RBI compliance. Deployed in weeks.",
       stats: [
@@ -249,11 +250,11 @@ function getSolutionHeroConfig(slug: string, solution: Solution): SolutionHeroCo
     return {
       tag: "LOAN DISTRIBUTION",
       name: "Distribution",
-      titlePrefix: "Optimize channel partner networks with",
-      titleGradient: "Smart Loan Distribution",
+      titlePrefix: "One Digital Lending Distribution Platform for",
+      titleGradient: "Loan Marketplaces and Partner Management",
       titleSuffix: "",
       description:
-        "Connect lenders with the right borrowers through a digital-first network built for banks, NBFCs, and fintech companies to accelerate loan disbursals.",
+        "Connect customers, lending institutions and distribution partners through one integrated ecosystem—enabling multi-lender discovery, lender-specific eligibility evaluation, application tracking and partner commission workflows.",
       stats: [
         { value: "360°", label: "NETWORK VISIBILITY" },
         { value: "Smart", label: "RULE-BASED ROUTING" },
@@ -327,13 +328,13 @@ function getSolutionHeroConfig(slug: string, solution: Solution): SolutionHeroCo
 
   if (s === "ai-intelligent-suite" || s === "ai-ml-score-models") {
     return {
-      tag: "AI INTELLIGENT SUITE",
+      tag: "AI-POWERED LENDING AND FINANCIAL INTELLIGENCE",
       name: "AI Intelligent Suite",
-      titlePrefix: "Next-gen lending powered by",
-      titleGradient: "AI Intelligent Suite",
+      titlePrefix: "Intelligence That Powers",
+      titleGradient: "Better Lending Decisions and Customer Experiences",
       titleSuffix: "",
       description:
-        "Comprehensive credit decisioning and risk intelligence suite designed for modern lenders. Unify alternative data, predictive intelligence, and agile business rules for smarter, faster loan evaluations.",
+        "Bring together AI credit scoring, intelligent AI agents, multilingual voice calling and generative AI to support smarter lending decisions, improve customer engagement and streamline financial operations.",
       stats: [
         { value: "Dynamic", label: "RISK ASSESSMENT" },
         { value: "Real-Time", label: "CREDIT DECISIONING" },
@@ -606,8 +607,8 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
             {/* Left Column: Eyebrow, Heading, Description, CTA Buttons, Trust Points */}
             <div className="lg:col-span-7 relative z-20">
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200/70 text-[#7c3aed] text-xs font-mono font-bold tracking-wider uppercase mb-3.5 shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#7c3aed]" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/80 border border-purple-200/60 text-[#9a3f91] text-xs font-mono font-bold tracking-wider uppercase mb-3.5 shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#9a3f91]" />
                 {heroConfig.tag}
               </div>
 
@@ -634,12 +635,12 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                   <span>Book a Demo</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a
-                  href="#platform-capabilities"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-700 font-semibold text-sm sm:text-base hover:bg-purple-50/50 hover:border-purple-200 hover:text-[#623f99] transition-all duration-300 shadow-xs"
+                <ScrollToSectionButton
+                  targetId="solution-content-start"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-700 font-semibold text-sm sm:text-base hover:bg-purple-50/50 hover:border-purple-200 hover:text-[#623f99] transition-all duration-300 shadow-xs cursor-pointer"
                 >
                   <span>Explore Platform</span>
-                </a>
+                </ScrollToSectionButton>
               </div>
 
               {/* Trust Checkmarks */}
@@ -649,7 +650,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                   <span>RBI Directions 2025 Ready</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#7c3aed] flex-shrink-0" />
+                  <Zap className="w-4 h-4 text-[#623f99] flex-shrink-0" />
                   <span>4–8 Weeks Deployment</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -674,6 +675,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
         </div>
       </div>
 
+      <div id="solution-content-start" className="scroll-mt-20">
       {solution.slug !== "bicri" && solution.full_content && solution.full_content.trim() && (
         <article className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-12 bg-transparent">
           {/* Solution Content */}
@@ -733,13 +735,6 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                     <code className="bg-gray-100 text-[#a259e6] px-2 py-1 rounded text-sm font-mono" {...props} />
                   ) : (
                     <div className="bg-gray-900 rounded-xl overflow-hidden my-8 shadow-lg">
-                      <div className="flex items-center px-4 py-2 bg-gray-800">
-                        <div className="flex space-x-2">
-                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-                      </div>
                       <pre className="p-4 text-sm text-gray-300 font-mono overflow-x-auto">
                         <code {...props} />
                       </pre>
@@ -926,7 +921,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                     {/* Trust Metric Badge */}
                     <div className="pt-2 flex items-center gap-4">
                       <div className="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-purple-100 text-[#7c3aed] flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-lg bg-purple-100 text-[#623f99] flex items-center justify-center">
                           <CheckCircle2 className="w-4 h-4" />
                         </div>
                         <div>
@@ -955,7 +950,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                             key={card.id || cIdx}
                             className="group relative rounded-2xl p-5 sm:p-6 bg-white border border-purple-100/90 shadow-[0_4px_20px_rgba(27,16,50,0.04)] hover:shadow-lg hover:border-purple-300 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3.5"
                           >
-                            <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#7c3aed] flex items-center justify-center flex-shrink-0 group-hover:bg-[#623f99] group-hover:text-white transition-colors duration-300">
+                            <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#623f99] flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-to-r group-hover:from-[#623f99] group-hover:to-[#9a3f91] group-hover:text-white transition-all duration-300">
                               {iconUrl ? (
                                 <div className="relative w-5 h-5">
                                   <Image
@@ -1034,7 +1029,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
                   <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                     <Link
                       href={cta.primaryBtnHref}
-                      className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#9a3f91] to-[#e51ede] text-white font-bold text-sm sm:text-base shadow-xl shadow-fuchsia-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+                      className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#623f99] to-[#9a3f91] text-white font-bold text-sm sm:text-base shadow-xl shadow-purple-950/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
                     >
                       <span>{cta.primaryBtnText}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -1079,7 +1074,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
         <div className="relative max-w-7xl mx-auto z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <span className="font-mono text-xs font-bold tracking-[0.22em] text-[#7c3aed] uppercase block mb-3">
+              <span className="font-mono text-xs font-bold tracking-[0.22em] text-[#9a3f91] uppercase block mb-3">
                 CONNECTED ECOSYSTEM
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
@@ -1143,6 +1138,7 @@ export default function SolutionDetail({ solution }: { solution: Solution | null
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
